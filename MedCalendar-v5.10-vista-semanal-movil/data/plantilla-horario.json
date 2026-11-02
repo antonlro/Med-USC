@@ -1,0 +1,25 @@
+{
+  "format": "medcalendar-schedule",
+  "version": 1,
+  "courseName": "2026-2027",
+  "group": "B",
+  "subgroups": ["B1", "B2", "B3", "B4"],
+  "weeks": [
+    {"number": 37, "date": "2026-09-07", "label": "7 sep 2026"}
+  ],
+  "events": [
+    {
+      "id": "ejemplo-1",
+      "week": 37,
+      "group": "B",
+      "day": 0,
+      "start": 930,
+      "duration": 60,
+      "type": "E",
+      "subject": "Nombre de la asignatura",
+      "subgroup": "",
+      "session": "E1",
+      "room": "Aula 6"
+    }
+  ]
+}

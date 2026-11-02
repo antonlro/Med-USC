@@ -1,0 +1,81 @@
+MED USC · VERSIÓN 5.9
+Reorganización de Personalizar, integración de optativas y simplificación de Exámenes
+Base de trabajo: copia independiente de MedCalendar v5.8.1
+
+1. CAMBIOS DE INTERFAZ
+- Personalizar se reorganiza en dos tarjetas principales equivalentes:
+  * Tu curso principal: asignaturas ordinarias y optativas.
+  * Otros cursos: asignaturas ordinarias y optativas.
+- Las cuatro opciones se conservan, pero quedan agrupadas en los dos bloques solicitados.
+- Las acciones «Cambiar mi configuración» y «Editar asignaturas» quedan juntas al final de Personalizar.
+- Se elimina el botón superior «Editar asignaturas». La única entrada a esa función queda dentro de Mi curso → Personalizar.
+- En escritorio se muestran los dos bloques en paralelo; en móvil se apilan.
+
+2. RECONSTRUCCIÓN Y CORRECCIÓN DEL CATÁLOGO DE OPTATIVAS
+Se volvió a extraer el horario desde el PDF original usando la posición de las celdas, las semanas, los días y las horas. No se mantuvo sin revisar el catálogo anterior, porque se detectaron errores de extracción.
+
+Catálogo final: 9 optativas y 559 sesiones.
+- 2.º: BINF 248, HIST 36, CELS N 100 (384 sesiones).
+- 3.º: ANES 24, ODONTO 46, TROPI 25 (95 sesiones).
+- 4.º: TRANS 29, ADITIVAS 26, INFAN 25 (80 sesiones).
+
+Correcciones relevantes:
+- BINF: se recuperan sesiones que faltaban en el catálogo anterior; se incluyen los horarios AB y CD y sus subgrupos (248 sesiones frente a las 205 del catálogo anterior).
+- HIST: las sesiones comunes etiquetadas ABCD aparecían repetidas en las hojas de los grupos AB y CD. Se conservan una sola vez (36 sesiones únicas, no 72 entradas duplicadas).
+- CELS N: se corrigen entradas duplicadas o mal interpretadas.
+- ODONTO: se recuperan los horarios de ABC I y ABC II, que estaban incompletos (46 sesiones frente a 21 en el catálogo anterior).
+- ANES y TRANS: se recuperan entradas y se preservan las etiquetas de sesión.
+- ADITIVAS: se corrigen semanas y etiquetas de sesiones S1/S2, S3/S4, etc.; las sesiones prácticas ya no quedan desplazadas ni confundidas con clases E. En la semana 5 de 2.º, la vista de optativas muestra 20 sesiones oficiales: 16 de BINF y 4 de HIST, sin duplicaciones.
+- Las etiquetas originales completas se conservan en rawLabel y sourceLabel; se normaliza por separado el campo session para el filtrado.
+- Los eventos comunes ABCD de HIST se deduplican únicamente cuando coinciden asignatura, fecha, día, hora y etiqueta oficial.
+
+3. VISUALIZACIÓN DE OPTATIVAS
+- Horarios incorpora «Optativas» como una opción de consulta junto a los grupos ordinarios.
+- Al entrar en Optativas, si el cuatrimestre actual no contiene sesiones, la vista salta al primero que sí las tiene; si el cuatrimestre sí tiene sesiones pero la semana actual está vacía, salta a la primera semana con clases.
+- Se muestran las etiquetas oficiales completas, sin reconstruirlas a partir de etiquetas genéricas.
+- Mi semana integra las optativas seleccionadas junto a las clases ordinarias.
+- Al cambiar el curso principal, las optativas seleccionadas se reclasifican entre «de tu curso» y «de otros cursos», sin perder la selección; el cambio se guarda.
+- Si una semana no tiene sesiones optativas, el mensaje explica que se comprueben cuatrimestre y semana, en vez de sugerir que falta el catálogo.
+
+4. EXÁMENES
+- Se eliminan del HTML los filtros por curso, cuatrimestre/convocatoria y estado.
+- Se muestran cinco selectores mensuales: diciembre 2026, enero, mayo, junio y julio 2027.
+- Cada mes muestra indicadores de las categorías presentes entre los exámenes seleccionados.
+- Azul: finales, periodos first y second (primer y segundo cuatrimestre).
+- Naranja: recuperaciones, periodo recovery (segundo intento).
+- Calendario y lista mensual siguen usando la misma colección filtrada.
+- Se conserva la evaluación continua sin fecha fija, el editor, las notas, los cambios personales y la restauración de exámenes oficiales.
+- Al editar un examen de recuperación, conserva la categoría de recuperación.
+
+5. PRUEBAS ESTÁTICAS Y DE DATOS
+- node --check js/app.js: correcto.
+- node --check service-worker.js: correcto.
+- Todos los JSON del paquete: válidos.
+- Catálogo de optativas: 559 IDs únicos y 559 claves de evento únicas.
+- Todas las sesiones tienen etiqueta original, fecha, día laborable y hora válidos.
+- Todas las semanas de optativas existen en el calendario oficial del curso correspondiente y la fecha coincide.
+- No quedan sesiones de optativas sin clasificar como E, S o P.
+- Calendario de exámenes: 104 registros (1.º 20, 2.º 26, 3.º 30, 4.º 28).
+
+6. PRUEBAS INTERACTIVAS EN CHROMIUM / PLAYWRIGHT
+La aplicación ejecutó su JavaScript real en Chromium, con los JSON del paquete inyectados en un documento de prueba aislado y almacenamiento local simulado.
+- Asistente de configuración inicial: completado.
+- BINF: 248 sesiones seleccionables; 16 sesiones de BINF en la semana 5 se integran junto con las clases ordinarias de esa semana en Mi semana.
+- Cambio de curso principal: BINF permanece seleccionada y pasa a «optativas de otros cursos».
+- Personalizar: dos columnas en escritorio, una en móvil; dos secciones por tarjeta; acciones inferiores alineadas; botón superior eliminado.
+- Horarios: al seleccionar Optativas para 2.º, cambia automáticamente al segundo cuatrimestre y semana 5; muestra 20 sesiones (16 BINF y 4 HIST) con etiquetas como «AB E1». Para 3.º salta a la semana 40 (ANES) y para 4.º permanece en la semana 37 (TRANS).
+- Exámenes: cinco meses; junio muestra finales y recuperaciones; filtros antiguos ausentes; el editor abre; al guardar una recuperación sigue clasificada como recuperación.
+- Validación de copia: copia válida aceptada y versión no compatible rechazada.
+- Cobertura de exámenes oficiales con todas las asignaturas y optativas del curso seleccionadas: 20/20, 26/26, 30/30 y 28/28.
+- Viewport móvil de 390 px: diseño de una columna y navegación inferior visibles.
+- Errores JavaScript de página/consola durante el recorrido: ninguno.
+
+7. LÍMITES DE ESTA VALIDACIÓN
+- La prueba usa set_content y recursos JSON locales porque el entorno bloquea la navegación normal a localhost y file://.
+- El almacenamiento usado en esta prueba es un mock de localStorage; no certifica IndexedDB real, persistencia tras cerrar/reabrir Safari ni migraciones sobre una base de datos real.
+- No se ha podido probar importación/exportación real mediante selector de archivos.
+- No se ha probado el Service Worker desde un origen HTTP(S) desplegado.
+- No se ha probado Safari/iPad. Esa comprobación sigue pendiente en el dispositivo real.
+
+CONCLUSIÓN
+La versión 5.9 implementa los cambios solicitados y corrige errores detectados al contrastar el catálogo de optativas con el PDF original. Las pruebas funcionales aisladas en Chromium pasan. No se certifica todavía el almacenamiento real, la PWA desplegada ni Safari/iPad; conviene conservar la versión anterior y una copia externa antes de sustituir la instalación habitual.

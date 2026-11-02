@@ -1,0 +1,19 @@
+MedCalendar v5.5 - Fase 5: Mi semana
+
+Base: copia independiente del paquete v5.4-fase4-optativas.zip.
+
+Cambios:
+- Mi semana ahora trata la procedencia de la clase (curso principal/otro curso) y su condición de optativa como atributos independientes.
+- Las asignaturas ordinarias del curso principal mantienen el borde normal.
+- Las asignaturas ordinarias añadidas desde otros cursos usan borde discontinuo.
+- Todas las optativas muestran una etiqueta OPTATIVA, tanto si pertenecen al curso principal como a otro curso.
+- Las optativas de otros cursos combinan borde discontinuo y etiqueta OPTATIVA.
+- Se consolidan las selecciones de optativas propias y de otros cursos en un único recorrido, preservando cada registro original de sesión, grupo, subgrupo y sesión.
+- Se evita duplicar una misma sesión por fuente/grupo/identificador/tipo.
+
+Validación realizada:
+- node --check js/app.js: correcto.
+- Catálogo JSON: 9 optativas y 532 sesiones; se comprobó que los registros conservan los campos de grupo, subgrupo y sesión.
+- Revisión estática de las clases CSS y plantillas de Mi semana.
+
+Pendiente de validación manual en navegador real (escritorio e iPad), incluida persistencia y navegación por semanas. No se afirma haber realizado una prueba E2E real.

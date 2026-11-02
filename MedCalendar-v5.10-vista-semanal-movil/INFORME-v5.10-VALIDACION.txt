@@ -1,0 +1,36 @@
+MED USC · VERSIÓN 5.10
+INFORME DE IMPLEMENTACIÓN Y VALIDACIÓN
+
+CAMBIOS IMPLEMENTADOS
+1. Mi semana
+- Se conserva la cuadrícula de lunes a viernes en escritorio y tablet.
+- En móvil se mantiene la vista diaria tipo agenda, con horas de inicio y fin en cada sesión y sin filas de horas vacías.
+- Se mejora la comodidad visual de los bloques en pantallas grandes mediante mayor espaciado y tipografía.
+
+2. Mi curso en móvil
+- Se sustituye la lista vertical de cinco días por un selector horizontal L-M-X-J-V.
+- El selector muestra fecha y contador de clases por día.
+- La agenda del día seleccionado muestra siempre hora de inicio y hora de finalización en una columna diferenciada.
+- Se conserva la información de asignatura, tipo, grupo, subgrupo, sesión y aula.
+- El cambio de semana sigue consultando el paquete oficial de esa semana; no se copian sesiones entre semanas.
+
+3. Adaptación
+- Ordenador e iPad (>620 px): cuadrícula semanal oficial.
+- Móvil (<=620 px): selector de día horizontal y agenda diaria en Mi curso; agenda diaria compacta en Mi semana.
+- Solo lunes a viernes.
+
+PRUEBAS AUTOMÁTICAS
+- node --check js/app.js: correcto.
+- node --check service-worker.js: correcto.
+- JSON de datos: parseo correcto.
+- Verificación de que el nuevo cache ID del Service Worker es distinto al de v5.9.
+- No se modifica el esquema de datos ni la versión del formato de backup.
+
+PENDIENTE DE PRUEBA EN DISPOSITIVO REAL
+- Safari en iPad en horizontal y vertical.
+- Safari en iPhone: anchura estrecha, desplazamiento y selección de días.
+- Persistencia de configuración al cerrar y volver a abrir.
+- Comprobar semanas con varias sesiones simultáneas y semanas con días vacíos.
+
+IMPORTANTE
+La cuadrícula semanal en iPad/ordenador conserva los datos oficiales. La vista móvil de Mi curso reorganiza la presentación, no altera ni recalcula las sesiones. No se ha probado en un iPad físico en esta ejecución.

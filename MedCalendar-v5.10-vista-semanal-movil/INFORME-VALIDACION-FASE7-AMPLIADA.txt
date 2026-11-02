@@ -1,0 +1,37 @@
+MedCalendar v5.0 — Informe de validación ampliada (revisión posterior a Fase 7)
+
+Fecha: 1 de noviembre de 2026
+Base: paquete MedCalendar-v5.0-fase7-pruebas.zip
+
+1. Pruebas de ejecución en Chromium
+Se pudo ejecutar el código de interfaz en Chromium mediante un banco de pruebas que incrusta HTML, CSS y JavaScript y proporciona los JSON locales. El entorno bloquea la navegación del navegador a direcciones file:// y localhost; por eso el banco de pruebas tuvo que simular las respuestas fetch y el almacenamiento local.
+
+Resultados:
+- Inicio de la interfaz y renderizado: superado.
+- Navegación por Mi semana, Mi curso, Horarios y Exámenes: superado.
+- Carga del calendario de exámenes de diciembre de 2026: superado; renderiza calendario mensual y lista de exámenes.
+- Edición de un examen oficial: superado; crea una modificación separada.
+- Restauración del examen oficial: superado; desaparece la modificación y vuelve el dato oficial.
+- Alta de optativa BINF para grupo AB en segundo curso: superado; aparece en la lista de optativas seleccionadas y se incorpora al cálculo de Mi semana.
+- Validación de copia de seguridad válida: superado.
+- Rechazo de versión de copia no compatible: superado.
+- Importación de copia válida de extremo a extremo en el entorno simulado: superado.
+- Restauración de horario conservando un cambio puntual de aula: superado tras corregir el procedimiento.
+- Errores JavaScript de ejecución observados durante estas pruebas: ninguno.
+- Anchura horizontal a 390 px: corregida; scrollWidth=390 e innerWidth=390.
+
+2. Correcciones realizadas tras las pruebas
+- Corregido un desbordamiento horizontal de 4 px en el encabezado en viewport móvil de 390 px.
+- La restauración del horario ahora intenta conservar cambios puntuales de aula y subgrupos existentes, además de asignaturas adicionales, optativas y exámenes.
+- Actualizados textos de ayuda que aún mencionaban «Mi plan», grupos completos y «semestre».
+
+3. Pruebas que siguen pendientes
+- IndexedDB nativo: no se pudo probar transacción real ni persistencia real entre cierres porque el entorno bloquea el origen de navegador y el banco de pruebas usa almacenamiento simulado.
+- Persistencia real de localStorage tras recargar/cerrar y volver a abrir: no certificada con el banco de pruebas aislado.
+- Fallos reales de cuota, abortos de transacción y corrupción del navegador: pendientes.
+- Service Worker, instalación PWA, actualización y funcionamiento offline real: pendientes; el banco de pruebas no ejecuta el ciclo de vida PWA en un origen seguro.
+- iPad/iPhone/Android y navegadores de escritorio reales: pendientes.
+- Migración desde una instalación v4 con datos personales reales: pendiente. No se ha utilizado ni sobrescrito ningún dato personal del usuario.
+
+4. Alcance y advertencia
+Estas pruebas validan flujos de interfaz y lógica con datos de muestra y almacenamiento simulado. No certifican todavía el almacenamiento persistente del navegador ni la seguridad de una migración con datos reales. Mantener una copia externa antes de usar esta versión con datos importantes.

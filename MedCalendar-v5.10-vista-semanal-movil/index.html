@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#073575"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Med USC"><meta name="description" content="Calendario universitario personalizable y disponible sin conexión.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/styles.css"><title>Med USC</title>
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand"><img class="brand-mark" src="icons/icon-192.png" alt=""><div><div class="brand-title" id="appName">Med USC</div><div class="brand-sub" id="facultyName">Facultade de Medicina · USC</div></div></div>
+    <div class="top-actions"><span class="offline-pill" id="connectionState"><i></i> Preparando…</span><button type="button" class="desktop-menu-btn" id="openAppMenuDesktop"><svg class="ui-icon" aria-hidden="true"><use href="#i-menu"></use></svg><span>Menú</span></button><details class="help-menu" id="helpMenu"><summary class="icon-btn" title="Ayuda" aria-label="Ayuda">?</summary><div class="help-menu-panel"><button type="button" id="restartGeneralHelp">Guía de las cuatro secciones</button><button type="button" id="restartSectionHelp">Ayuda de esta pestaña</button></div></details><button class="icon-btn" id="settingsBtn" title="Ajustes" aria-label="Ajustes">⚙</button></div>
+  </header>
+  <main>
+    <nav class="main-tabs" aria-label="Secciones principales"><button type="button" class="main-tab active" data-main-tab="MI SEMANA"><svg class="ui-icon" aria-hidden="true"><use href="#i-calendar-week"></use></svg><span>Mi semana</span></button><button type="button" class="main-tab" data-main-tab="MI CURSO"><svg class="ui-icon" aria-hidden="true"><use href="#i-book-open"></use></svg><span>Mi curso</span></button><button type="button" class="main-tab" data-main-tab="HORARIOS"><svg class="ui-icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>Horarios</span></button><button type="button" class="main-tab" data-main-tab="EXÁMENES"><svg class="ui-icon" aria-hidden="true"><use href="#i-clipboard"></use></svg><span>Exámenes</span></button></nav>
+    <section class="toolbar">
+      <div class="course-picker"><label for="courseSelect">Curso de Medicina</label><select id="courseSelect"></select></div>
+      <div class="toolbar-actions"><details class="more-menu"><summary aria-label="Más opciones" title="Más opciones">⋮</summary><div class="more-menu-panel"><button class="secondary-btn" id="importBackupBtn">Importar copia</button><button class="secondary-btn" id="exportBackupBtn">↓ Exportar copia</button></div></details></div>
+    </section>
+    <nav class="course-subtabs hidden" id="courseSubtabs" aria-label="Secciones de Mi curso"><button type="button" class="course-subtab active" data-course-view="calendar">Mi calendario</button><button type="button" class="course-subtab" data-course-view="personalize">Personalizar</button></nav>
+    <section id="excludedSubjectsPanel" class="excluded-subjects-panel personalize-card own-regular-card hidden"><div><div class="eyebrow">ASIGNATURAS ORDINARIAS</div><p>Activa o desactiva las asignaturas que quieres incorporar a Mi semana.</p></div><div id="excludedSubjectsList" class="excluded-subjects-list"></div></section>
+    <section id="courseNotConfigured" class="course-not-configured hidden"><h2>Configura tu curso principal</h2><p>Indica en qué curso y grupo estás para empezar a construir tu horario personal. Podrás cambiarlo cuando quieras.</p><button type="button" class="primary-btn" id="configureCourseBtn">Configurar mi curso</button></section>
+    <section id="planControls" class="plan-controls hidden">
+      <div class="personalize-card own-course-card"><div class="eyebrow">TU CURSO PRINCIPAL</div><strong>Asignaturas y optativas</strong><div id="baseCourseVisibilityMount"></div><div id="ownCourseSubjectsMount"></div></div>
+      <div class="personalize-card own-optatives-card">
+        <div class="eyebrow">TU CURSO · OPTATIVAS</div><strong>Optativas de tu curso</strong>
+        <p>Selecciona las optativas que quieras incorporar a Mi semana. Se incorporarán todas las sesiones de la optativa, conservando las etiquetas de grupo y subgrupo del documento oficial.</p>
+        <div class="plan-add-row"><select id="optativeSelect" aria-label="Optativa"><option value="">Optativa</option></select><button type="button" class="primary-btn" id="addOptativeBtn">＋ Añadir optativa</button></div>
+        <div id="selectedOptativesList" class="extra-subject-filters"></div><p id="optativesSourceNotice" class="plan-data-notice"></p>
+      </div>
+      <div class="personalize-card other-regular-card">
+        <div class="eyebrow">OTROS CURSOS · ASIGNATURAS ORDINARIAS</div><strong>Asignaturas de otros cursos</strong>
+        <p>Añade asignaturas ordinarias de otros años. Se incorporarán todas las sesiones disponibles, sin elegir grupo.</p>
+        <div class="plan-add-row"><select id="extraCourseSelect" aria-label="Curso de la asignatura"><option value="">Curso</option></select><select id="extraSubjectSelect" aria-label="Asignatura para añadir"><option value="">Asignatura</option></select><button type="button" class="primary-btn" id="addExtraSubject">＋ Añadir a Mi semana</button></div>
+        <div id="extraSubjectFilters" class="extra-subject-filters"></div><div id="planDataNotice" class="plan-data-notice"></div>
+      </div>
+      <div class="personalize-card other-optatives-card"><div class="eyebrow">OTROS CURSOS · OPTATIVAS</div><strong>Optativas de otros cursos</strong><p>Selecciona optativas de otros años. Se añadirán todas sus sesiones automáticamente.</p><div class="plan-add-row"><select id="extraOptativeSelect" aria-label="Optativa de otro curso"><option value="">Optativa</option></select><button type="button" class="primary-btn" id="addExtraOptativeBtn">＋ Añadir optativa</button></div><div id="otherOptativesSummary" class="extra-subject-filters"></div></div>
+      <div class="personalize-card other-course-card"><div class="eyebrow">OTROS CURSOS</div><strong>Asignaturas y optativas</strong><p>Incorpora asignaturas ordinarias y optativas de otros años.</p><div id="otherCourseSubjectsMount"></div></div>
+      <div class="personalize-bottom-actions"><div id="academicProfilePanel" class="academic-profile-panel hidden"><div><div class="eyebrow">TU CONFIGURACIÓN</div><strong id="academicProfileSummary">Curso sin configurar</strong><p>Esta selección determina qué clases de tu curso principal aparecen en Mi semana.</p></div><button type="button" class="secondary-btn" id="editAcademicProfileBtn">Cambiar mi configuración</button></div><div class="personalize-card subject-edit-card"><div class="eyebrow">PREFERENCIAS</div><strong>Colores y aulas</strong><p>Personaliza la apariencia y las aulas habituales de tus asignaturas.</p><button type="button" class="secondary-btn" id="personalizeSubjectsBtn">Editar asignaturas</button></div></div>
+    </section>
+    <section id="weekView" class="week-view">
+      <div class="week-view-head"><div><div class="eyebrow">TU HORARIO PERSONAL</div><h1 id="weekViewTitle">Mi semana</h1><p id="weekViewRange"></p></div><div class="week-view-controls"><button class="icon-btn" id="weekViewPrev" aria-label="Anterior">‹</button><button class="secondary-btn" id="weekViewToday">Hoy</button><button class="icon-btn" id="weekViewNext" aria-label="Siguiente">›</button></div></div>
+      <div id="weekNotConfigured" class="week-not-configured hidden"><h2>Tu horario todavía no está configurado</h2><p>Primero indica tu curso principal y tu grupo en «Mi curso». Así podremos mostrarte las clases que te corresponden.</p><button type="button" class="primary-btn" id="configureFromWeek">Configurar mi curso</button></div><div id="weekConfiguredContent"><div id="weekSubgroupNotice" class="week-subgroup-notice hidden"><span id="weekSubgroupLabel"></span><button type="button" class="secondary-btn" id="toggleOtherSubgroups">Mostrar otros subgrupos</button></div><div id="weekDayStrip" class="week-day-strip"></div><div id="weekViewNavLabel" class="week-view-nav-label"></div><div id="weekViewContent"></div></div>
+    </section>
+    <section class="workspace hidden" id="workspace">
+      <aside class="sidebar">
+        <div class="sidebar-heading"><span>SEMANAS</span></div>
+        <div class="semester-switch" id="semesterSwitch" aria-label="Cuatrimestre"><button type="button" data-semester="1" class="active">1.º cuatrimestre</button><button type="button" data-semester="2">2.º cuatrimestre</button></div>
+        <div class="week-list" id="weekList"></div>
+        <div class="sidebar-note">Selecciona una semana para consultar o editar sus clases.</div>
+      </aside>
+      <section class="calendar-panel">
+        <nav class="group-tabs" id="groupTabs" aria-label="Grupos disponibles del curso"></nav>
+        <div class="calendar-heading"><div><div class="eyebrow" id="calendarEyebrow">GRUPO B</div><h1 id="weekTitle">Semana 37</h1><p id="weekDate">7 de septiembre de 2026</p></div><div class="week-arrows"><button class="icon-btn" id="prevWeek" aria-label="Semana anterior">‹</button><button class="icon-btn" id="nextWeek" aria-label="Semana siguiente">›</button></div></div>
+        <div class="filters-row">
+          <div class="filter-block"><label for="subgroupFilter">Subgrupo</label><select id="subgroupFilter"><option value="all">Todos</option></select></div>
+          <div class="type-filters" id="typeFilters"><label><input type="checkbox" value="E" checked><span class="legend-dot E"></span> Expositivas</label><label><input type="checkbox" value="S" checked><span class="legend-dot S"></span> Seminarios</label><label><input type="checkbox" value="P" checked><span class="legend-dot P"></span> Prácticas</label></div>
+          <div class="view-mode"><label for="colorMode">Colores</label><select id="colorMode"><option value="type">Por tipo de clase</option><option value="subject">Por asignatura</option></select></div>
+        </div>
+        <div id="calendar" class="calendar-grid" aria-live="polite"></div>
+        <div class="calendar-foot"><span id="eventCount">0 clases</span><span>Horario oficial de consulta</span></div>
+      </section>
+    </section>
+    <section id="examsView" class="exams-view hidden">
+      <div class="exams-heading"><div><div class="eyebrow">CALENDARIO ACADÉMICO 2026–2027</div><h1>Exámenes</h1><p>Consulta y personaliza las convocatorias oficiales. Los cambios personales se guardan por separado de los datos de origen.</p></div><button type="button" class="primary-btn" id="addPersonalExam">＋ Añadir examen</button></div>
+      <div class="exam-category-legend"><span><i class="final-dot"></i><strong>Exámenes finales</strong><small>Primer y segundo cuatrimestre</small></span><span><i class="recovery-dot"></i><strong>Recuperaciones</strong><small>Segundo intento</small></span></div><div class="exam-month-picker" id="examMonthPicker" aria-label="Seleccionar mes"><button type="button" data-month="2026-12">Diciembre <small>2026</small></button><button type="button" data-month="2027-01">Enero <small>2027</small></button><button type="button" data-month="2027-05">Mayo <small>2027</small></button><button type="button" data-month="2027-06">Junio <small>2027</small></button><button type="button" data-month="2027-07">Julio <small>2027</small></button></div><select id="examMonthFilter" class="hidden" aria-hidden="true"><option value="2026-12">Diciembre 2026</option><option value="2027-01">Enero 2027</option><option value="2027-05">Mayo 2027</option><option value="2027-06">Junio 2027</option><option value="2027-07">Julio 2027</option></select>
+      <div id="examCalendar" class="exam-calendar" aria-live="polite"></div>
+      <p class="exam-source-note" id="examSourceNote">Fuente: horarios exámenes.pdf · Curso 2026–2027. Práctica Clínica I y II se incluyen porque figuran en el documento de exámenes.</p>
+    </section>
+  </main>
+  <footer class="footer"><span>Med USC · versión 5.10</span><span id="saveState">Guardado en este dispositivo</span></footer>
+</div>
+
+<div class="modal-backdrop hidden" id="examModal"><section class="modal compact"><div class="modal-head"><div><div class="eyebrow">GESTIÓN DE EXÁMENES</div><h2 id="examModalTitle">Editar examen</h2></div><button class="icon-btn" id="closeExamModal">×</button></div><div class="form-grid"><label class="full">Asignatura<input id="examSubject"></label><label>Curso<select id="examCourse"><option value="1">1.º</option><option value="2">2.º</option><option value="3">3.º</option><option value="4">4.º</option></select></label><label>Convocatoria<select id="examPeriod"><option value="first">Primer cuatrimestre</option><option value="second">Segundo cuatrimestre</option><option value="recovery">Segunda oportunidad</option></select></label><label>Fecha<input id="examDate" type="date"></label><label>Hora<input id="examTime" type="time"></label><label class="full">Aulas<input id="examRooms" placeholder="Ej. 2,3,4,5"></label><label class="full">Notas<textarea id="examNotes" rows="3" placeholder="Añade información personal…"></textarea></label></div><div class="modal-actions"><button class="danger-btn hidden" id="deletePersonalExam">Eliminar</button><div class="right-actions"><button class="secondary-btn hidden" id="restoreOfficialExam">Restaurar original</button><button class="secondary-btn" id="cancelExamModal">Cancelar</button><button class="primary-btn" id="saveExamModal">Guardar</button></div></div><p class="hint" id="examEditHint">Los datos oficiales originales se conservan y pueden restaurarse.</p></section></div>
+
+<div class="modal-backdrop hidden" id="subjectsModal"><section class="modal compact"><div class="modal-head"><div><div class="eyebrow">PERSONALIZACIÓN</div><h2>Editar asignaturas</h2></div><button class="icon-btn" id="closeSubjects">×</button></div><div class="form-grid"><label class="full">Asignatura<select id="subjectSelect"></select></label><label>Color de la asignatura<input id="subjectColor" type="color" value="#dce8f7"></label><label>Aula habitual<input id="subjectRoom" placeholder="Ej. Aula 3 Medicina"></label><label class="full">Cambiar aula de una sesión concreta<select id="roomOverrideSession"></select></label><label class="full">Aula puntual<input id="roomOverrideValue" placeholder="Aula diferente solo para esta sesión"></label><div class="full room-override-actions"><button type="button" class="secondary-btn" id="saveRoomOverride">Guardar cambio puntual</button><button type="button" class="text-btn" id="clearRoomOverride">Restaurar aula habitual</button></div></div><p class="hint">El color y el aula habitual se aplican a toda la asignatura. Los cambios puntuales solo afectan a la sesión que selecciones.</p><div class="modal-actions"><span></span><div class="right-actions"><button class="secondary-btn" id="cancelSubjects">Cancelar</button><button class="primary-btn" id="saveSubject">Guardar asignatura</button></div></div></section></div>
+
+<div class="modal-backdrop hidden" id="settingsModal"><section class="modal"><div class="modal-head"><div><div class="eyebrow">PERSONALIZACIÓN</div><h2>Ajustes</h2></div><button class="icon-btn" id="closeSettings">×</button></div><div class="form-grid">
+<label class="full">Nombre de la aplicación<input id="settingAppName" value="Med USC"></label><label class="full">Facultad / centro<input id="settingFaculty" placeholder="Ej. Facultad de Medicina · USC"></label>
+<label>Color principal<input id="settingColor" type="color" value="#315b91"></label><label>Vista inicial<select id="settingStartView"><option value="week">Semana</option><option value="agenda">Agenda compacta</option></select></label>
+
+</div><div class="modal-actions"><button class="danger-btn" id="resetBtn">Restablecer calendario</button><div class="right-actions"><button class="secondary-btn" id="cancelSettings">Cancelar</button><button class="primary-btn" id="saveSettings">Guardar ajustes</button></div></div><p class="hint">Restablecer recupera la plantilla original del grupo B. Antes de hacerlo, exporta una copia si quieres conservar tus cambios.</p></section></div>
+
+<div class="modal-backdrop hidden" id="courseModal"><section class="modal compact"><div class="modal-head"><div><div class="eyebrow">NUEVO CURSO</div><h2>Crear curso académico</h2></div><button class="icon-btn" id="closeCourse">×</button></div><div class="form-grid"><label>Nombre<input id="newCourseName" placeholder="2027-2028"></label><label>Fecha de inicio<input id="newCourseStart" type="date" value="2027-09-06"></label><label>Semanas<select id="newCourseWeeks"><option value="15">15 semanas</option><option value="30">30 semanas</option><option value="40">40 semanas</option><option value="52">52 semanas</option></select></label></div><div class="modal-actions"><span></span><div class="right-actions"><button class="secondary-btn" id="cancelCourse">Cancelar</button><button class="primary-btn" id="createCourse">Crear curso</button></div></div></section></div>
+<div class="setup-backdrop hidden" id="academicSetup" role="dialog" aria-modal="true" aria-labelledby="academicSetupTitle">
+  <section class="setup-card">
+    <div class="setup-brand"><img src="icons/icon-192.png" alt=""><div><div class="eyebrow">BENVIDO A MED USC</div><strong>Med USC</strong></div></div>
+    <h2 id="academicSetupTitle">¡Vamos a configurar tu horario!</h2>
+    <p class="setup-intro">Indica tu curso principal y el grupo al que perteneces para preparar tu calendario personal.</p>
+    <div class="setup-fields">
+      <label>1. Curso principal<select id="academicYearSelect"><option value="">Selecciona tu curso</option></select></label>
+      <label>2. Grupo<select id="academicGroupSelect" disabled><option value="">Primero selecciona el curso</option></select></label>
+      <label>3. Subgrupo <span>(opcional)</span><select id="academicSubgroupSelect" disabled><option value="">Todos los subgrupos</option></select></label>
+    </div>
+    <div class="setup-reassurance"><strong>Podrás cambiarlo cuando quieras.</strong><span>Esta configuración no es definitiva. Puedes modificar tu curso, grupo o subgrupo más adelante desde «Mi curso», sin perder tus asignaturas adicionales.</span></div>
+    <div class="setup-actions"><button type="button" class="secondary-btn" id="setupBrowseSchedules">Consultar horarios generales</button><div><button type="button" class="secondary-btn hidden" id="setupCancel">Cancelar</button><button type="button" class="primary-btn" id="saveAcademicProfile" disabled>Guardar y continuar</button></div></div>
+  </section>
+</div>
+<div class="setup-backdrop hidden" id="fullOnboarding" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+ <section class="setup-card onboarding-card"><div class="setup-brand"><img src="icons/icon-192.png" alt=""><div><div class="eyebrow">BENVIDO A MED USC</div><strong>Configuración inicial</strong></div></div>
+ <div class="onboarding-progress" id="onboardingProgress"></div><h2 id="onboardingTitle">Prepara tu horario</h2><p class="setup-intro" id="onboardingIntro"></p><div id="onboardingBody" class="onboarding-body"></div>
+ <div class="setup-actions"><button type="button" class="secondary-btn" id="onboardingSkip">Omitir este paso</button><div><button type="button" class="secondary-btn hidden" id="onboardingBack">Atrás</button><button type="button" class="primary-btn" id="onboardingNext">Continuar</button></div></div></section></div>
+<div class="tutorial-choice-backdrop hidden" id="tutorialChoice" role="dialog" aria-modal="true" aria-labelledby="tutorialChoiceTitle">
+  <section class="tutorial-choice-card">
+    <div class="eyebrow">BENVIDO A MED USC</div>
+    <h2 id="tutorialChoiceTitle">¿Quieres hacer una visita guiada?</h2>
+    <p>Te enseñaremos brevemente las cuatro secciones y cómo utilizar sus opciones. Si lo prefieres, puedes empezar directamente y consultar la ayuda más tarde desde el botón «?».</p>
+    <div class="tutorial-choice-actions"><button type="button" class="secondary-btn" id="tutorialChooseNo">Ahora no</button><button type="button" class="primary-btn" id="tutorialChooseYes">Ver tutorial</button></div>
+  </section>
+</div>
+<div class="tutorial-layer hidden" id="tutorialLayer" aria-live="polite" aria-modal="true" role="dialog" aria-labelledby="tutorialTitle">
+  <div class="tutorial-spotlight" id="tutorialSpotlight"></div>
+  <section class="tutorial-card">
+    <div class="tutorial-card-top"><span class="tutorial-kicker" id="tutorialKicker">GUÍA DE MED USC</span><button type="button" class="tutorial-close" id="tutorialSkipTop" aria-label="Saltar tutorial">×</button></div>
+    <h2 id="tutorialTitle">Bienvenido a Med USC</h2><p id="tutorialText"></p>
+    <div class="tutorial-progress" id="tutorialProgress"></div>
+    <div class="tutorial-actions"><button type="button" class="tutorial-skip" id="tutorialSkip">Saltar guía</button><div><button type="button" class="secondary-btn" id="tutorialPrev">Anterior</button><button type="button" class="primary-btn" id="tutorialNext">Siguiente</button></div></div>
+  </section>
+</div>
+<svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <symbol id="i-calendar-week" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3M8 17h3M15 14h2"/></symbol>
+  <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14M12 7C9 4.5 5.5 4 3 5v14c3-1 6.5-.5 9 2M12 7c3-2.5 6.5-3 9-2v14c-3-1-6.5-.5-9 2"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5V3h6v1.5M8.5 10h7M8.5 14h7M8.5 18h4"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+</svg>
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <button type="button" class="bottom-nav-item active" data-main-tab="MI SEMANA"><svg class="bottom-nav-icon" aria-hidden="true"><use href="#i-calendar-week"></use></svg><span>Mi semana</span></button>
+  <button type="button" class="bottom-nav-item" data-main-tab="MI CURSO"><svg class="bottom-nav-icon" aria-hidden="true"><use href="#i-book-open"></use></svg><span>Mi curso</span></button>
+  <button type="button" class="bottom-nav-item" data-main-tab="HORARIOS"><svg class="bottom-nav-icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>Horarios</span></button>
+  <button type="button" class="bottom-nav-item" data-main-tab="EXÁMENES"><svg class="bottom-nav-icon" aria-hidden="true"><use href="#i-clipboard"></use></svg><span>Exámenes</span></button>
+  <button type="button" class="bottom-nav-item menu-nav-item" id="openAppMenu"><svg class="bottom-nav-icon" aria-hidden="true"><use href="#i-menu"></use></svg><span>Menú</span></button>
+</nav>
+<div class="app-menu-backdrop hidden" id="appMenuBackdrop"><section class="app-menu-panel" role="dialog" aria-modal="true" aria-labelledby="appMenuTitle"><div class="app-menu-head"><div><div class="eyebrow">MED USC</div><h2 id="appMenuTitle">Menú</h2></div><button type="button" class="icon-btn" id="closeAppMenu" aria-label="Cerrar menú">×</button></div><button type="button" class="app-menu-action" id="menuSettings">⚙ Ajustes</button><button type="button" class="app-menu-action" id="menuExportBackup">↓ Exportar copia de seguridad</button><button type="button" class="app-menu-action" id="menuImportBackup">↑ Importar copia de seguridad</button><button type="button" class="app-menu-action" id="menuTutorial">ⓘ Ayuda y tutorial</button><p class="app-menu-note">Las copias de seguridad permiten trasladar o recuperar tus datos. Guárdalas también fuera del dispositivo.</p></section></div>
+<input type="file" id="backupFile" accept=".json,application/json" hidden>
+<script src="js/app.js"></script>
+</body></html>

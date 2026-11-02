@@ -1,0 +1,24 @@
+MED USC · FASE 7 · INFORME DE VALIDACIÓN
+Versión: v5.7-fase7-validacion
+Base: paquete v5.6-fase6-examenes.zip (copia independiente)
+
+CAMBIO CORRECTIVO
+- Se ha actualizado el identificador de caché del Service Worker a medusc-v5-7-fase7-validacion. La versión anterior conservaba el identificador medusc-v5-2-onboarding, incoherente con las iteraciones posteriores y con riesgo de reutilizar recursos cacheados antiguos durante actualizaciones.
+- No se ha cambiado el nombre ni la estructura de IndexedDB (MedCalendarDB_v4_preview), porque modificar la base de datos sin una migración verificada podría impedir recuperar datos locales existentes.
+
+VALIDACIONES EJECUTADAS
+- node --check js/app.js: correcto.
+- node --check service-worker.js: correcto.
+- Parseo de los 8 archivos JSON de data/: correcto.
+- Revisión estática de las rutas de datos, catálogo de optativas, exámenes, navegación y almacenamiento.
+- Integridad del ZIP de entrega: comprobada tras empaquetado.
+
+LIMITACIONES Y DEFECTOS PENDIENTES
+- La prueba automatizada de Chromium headless se intentó contra un servidor local, pero el proceso no terminó dentro del límite de ejecución y no produjo DOM verificable. Por tanto, no se declara superada la prueba de navegador.
+- No se ha probado en Safari/iPad ni en instalación PWA real.
+- La lectura/escritura IndexedDB, migración desde versiones anteriores, importación/exportación de copias y recuperación ante corrupción requieren pruebas interactivas con perfiles de navegador y datos persistentes; no se declaran validadas.
+- La función applyTimetableData captura errores de carga por curso y continúa. En caso de fallo de red podría dejar un curso sin cargar sin bloquear el inicio. Conviene corregirlo en una fase específica tras definir la política de arranque degradado, sin poner en riesgo datos existentes.
+- La clave de IndexedDB conserva el sufijo _v4_preview. Se mantiene deliberadamente por compatibilidad; no se renombra sin migración explícita.
+
+ESTADO
+Esta fase es una revisión estática y correctiva limitada, no una certificación integral de funcionamiento. Los paquetes previos no se han modificado.

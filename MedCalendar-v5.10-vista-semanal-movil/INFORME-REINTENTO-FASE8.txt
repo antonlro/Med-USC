@@ -1,0 +1,45 @@
+MED USC · FASE 8 · REINTENTO DE PRUEBAS Y CORRECCIÓN
+Versión de trabajo: MedCalendar v5.8.1-correccion-examenes
+Base: copia independiente de MedCalendar v5.8-fase8-pruebas
+
+HALLAZGO FUNCIONAL CORREGIDO
+- La primera prueba interactiva con Chromium mostró que el filtrado de exámenes oficiales no encontraba coincidencias: el horario utiliza códigos abreviados (p. ej. NEURO, FISIO M), mientras que el calendario de exámenes contiene nombres oficiales completos (Neuroanatomía, Fisioloxía Médica).
+- Se añadió una tabla explícita de equivalencias entre códigos de las asignaturas de los horarios y denominaciones del calendario oficial.
+- Se incluyeron las equivalencias de optativas y las variantes ortográficas que aparecen en los datos oficiales.
+- Práctica Clínica I y II se mantienen disponibles en exámenes para los cursos 3.º y 4.º, respectivamente, sin introducir sesiones en Mi semana.
+- Se corrigió también la búsqueda de color: el nombre completo del examen ahora puede recuperar el color guardado con el código abreviado de la asignatura.
+
+PRUEBAS DE CÓDIGO Y DATOS
+- node --check js/app.js: correcto.
+- node --check service-worker.js: correcto.
+- Los 4 paquetes de horarios oficiales: estructura válida.
+- Catálogo de optativas: 9 materias y 532 sesiones.
+- Catálogo de exámenes: 104 registros.
+- Cobertura del filtrado de exámenes, con todas las asignaturas ordinarias y optativas de cada curso seleccionadas:
+  1.º: 20/20 registros oficiales coincidentes.
+  2.º: 26/26 registros oficiales coincidentes.
+  3.º: 30/30 registros oficiales coincidentes.
+  4.º: 28/28 registros oficiales coincidentes.
+
+PRUEBAS EN CHROMIUM CON PLAYWRIGHT
+- La interfaz se ejecutó en Chromium usando un documento de prueba aislado; los recursos JSON se inyectaron desde los archivos del paquete porque el entorno bloquea la navegación HTTP a localhost (ERR_BLOCKED_BY_ADMINISTRATOR).
+- Asistente de configuración inicial: completado sin errores JavaScript.
+- Selección de BINF (curso propio) y ANES (otro curso): 228/228 sesiones generadas; se conservaron las etiquetas de grupo, subgrupo y sesión.
+- Exámenes de enero 2027: 4 filas y 4 elementos en el calendario mensual para las asignaturas seleccionadas; ambas vistas comparten la colección filtrada.
+- Apertura del editor desde un registro del calendario: correcta.
+- Color de examen vinculado al color guardado con el código de asignatura: correcto.
+- Examen personal: permanece visible tras excluir las asignaturas oficiales.
+- Navegación: 4 pestañas superiores en escritorio; 5 elementos de navegación inferior visibles en viewport móvil (390 px).
+- Errores JavaScript de página/consola durante el recorrido: ninguno.
+- Validación de copia: copia estructuralmente válida aceptada; versión de copia no compatible rechazada.
+
+LIMITACIONES QUE SIGUEN PENDIENTES
+- El entorno bloquea la navegación normal a localhost y las páginas file://; por ello se utilizó set_content de Playwright con datos y almacenamiento local simulados. No es una prueba de despliegue HTTP/PWA.
+- No se pudo probar IndexedDB real, persistencia tras cerrar/reabrir el navegador, migraciones sobre una base de datos real ni importación/exportación real mediante selector de archivos.
+- No se ha probado Safari/iPad.
+- El Service Worker no se pudo registrar desde el contexto aislado de prueba.
+
+CONCLUSIÓN
+- La prueba interactiva ha permitido detectar y corregir un fallo real de filtrado y otro de vinculación de colores.
+- La cobertura automatizada del calendario de exámenes alcanza todos los registros oficiales de los cuatro cursos cuando las asignaturas ordinarias y optativas están seleccionadas.
+- La fase 8 mejora su validación, pero no se considera certificada la persistencia real ni el funcionamiento PWA/Safari hasta probar en un origen HTTP(S) real y en el iPad.

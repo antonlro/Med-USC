@@ -1,0 +1,26 @@
+MedCalendar v5.0 — Fase 7: pruebas y correcciones
+
+Correcciones realizadas
+- Corregida una declaración duplicada de importBackup(): una función antigua sobrescribía la versión nueva con validación estructural y copia de recuperación previa. Se ha retirado la implementación antigua.
+- Corregido el guardado: si IndexedDB está disponible pero falla una escritura, ya no se guarda silenciosamente en localStorage. Antes podía ocurrir que la copia más reciente quedase en localStorage mientras el siguiente inicio priorizaba una copia antigua de IndexedDB. Ahora el guardado informa de error y no afirma que se haya guardado. Si IndexedDB no está disponible desde el inicio, se utiliza localStorage.
+
+Pruebas ejecutadas y resultado
+1. node --check js/app.js: SUPERADA.
+2. Parseo JSON de todos los archivos de data/: SUPERADA.
+3. IDs duplicados en index.html: ninguno.
+4. Declaraciones de funciones duplicadas en app.js: ninguna.
+5. Integridad básica del calendario de exámenes: 104 registros; distribución por curso 20/26/30/28; 0 IDs ausentes o duplicados; 0 asignaturas vacías; 0 fechas con formato incorrecto.
+6. Distribución de exámenes por período: 22 primer cuatrimestre, 30 segundo cuatrimestre, 52 segunda oportunidad. Se mantienen 2 registros de evaluación continua sin fecha.
+7. Catálogo de optativas: 9 códigos presentes; estructura de sesiones y referencias de páginas disponible en el JSON.
+8. Horarios oficiales de los cuatro cursos: no se encontraron sesiones con el texto «Práctica Clínica» en los JSON principales.
+9. Comprobación del ZIP: pendiente de realizarse al empaquetar esta fase.
+
+Pruebas NO realizadas / no superadas
+- No se ha podido completar la apertura y ejecución de la aplicación en Chromium headless en este entorno: el proceso quedó bloqueado y terminó por timeout, sin producir DOM. Por tanto no se declara superada una prueba funcional de navegador.
+- No se han simulado transacciones reales de IndexedDB, fallos de almacenamiento, restauración tras cierre, ni importación/exportación completa con un navegador.
+- No se han probado iPad, iPhone, Android ni escritorio de forma interactiva.
+- No se ha verificado la instalación PWA ni el comportamiento offline/actualización del service worker.
+- No se ha ejecutado una migración con datos personales reales del usuario.
+
+Conclusión
+Esta fase corrige dos defectos detectados en la revisión estática, pero no convierte todavía la aplicación en una versión estable ni certifica la conservación de datos en condiciones reales. Antes de utilizarla con datos importantes, realizar pruebas en un navegador real y conservar una copia externa.

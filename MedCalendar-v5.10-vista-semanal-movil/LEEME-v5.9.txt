@@ -1,0 +1,20 @@
+MED USC · v5.9
+
+Versión de desarrollo con:
+- Personalizar reorganizado en dos bloques: tu curso principal y otros cursos.
+- Configuración académica y edición de asignaturas juntas al final de Personalizar.
+- Catálogo de optativas reconstruido desde el PDF original y consultable en Horarios.
+- Exámenes con selector mensual y colores por categoría: finales y recuperaciones.
+
+Instalación/despliegue:
+1. Descomprime el ZIP manteniendo la estructura de carpetas.
+2. Publica el contenido de la carpeta MedCalendar-v5.9-reorganizacion en un hosting estático HTTPS (por ejemplo, Netlify).
+3. Abre la URL en Safari y añade la aplicación a la pantalla de inicio si quieres usarla como PWA.
+4. Antes de sustituir tu versión habitual, exporta una copia desde Menú → Exportar copia.
+5. Tras desplegar, importa la copia si necesitas recuperar tus preferencias y comprueba el resultado en Safari/iPad.
+
+Importante:
+- La aplicación guarda los datos localmente en el navegador/dispositivo; no hay sincronización en la nube.
+- Mantén una copia externa periódica.
+- La validación incluida se ha realizado en Chromium aislado. IndexedDB real, el despliegue HTTPS, el Service Worker y Safari/iPad aún requieren prueba en dispositivo real.
+- Consulta INFORME-FASE9-REORGANIZACION-Y-VALIDACION.txt para el detalle de cambios y pruebas.

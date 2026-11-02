@@ -1,0 +1,31 @@
+MED USC · FASE 8 · PRUEBAS FUNCIONALES Y CORRECCIONES
+Base: MedCalendar v5.7-fase7-validacion (copia independiente)
+Versión de entrega: v5.8-fase8-pruebas
+
+CORRECCIÓN APLICADA
+- applyTimetableData ya no captura y oculta los errores de cada curso.
+- Antes de modificar el estado, descarga y valida los cuatro paquetes de horarios. Si uno falla o su estructura es inválida, no aplica una actualización parcial.
+- Si falla la actualización de horarios, la aplicación conserva la configuración previa y muestra un aviso visible. El error queda también en consola.
+- Actualizada la caché del Service Worker a medusc-v5-8-fase8-pruebas.
+- La metadata de exportación de copias identifica ahora la versión 5.8.
+- No se ha renombrado IndexedDB ni modificado su esquema; no hay migración destructiva.
+
+PRUEBAS AUTOMATIZADAS EJECUTADAS
+- node --check js/app.js: correcto.
+- node --check service-worker.js: correcto.
+- Parseo de los ocho JSON: correcto.
+- Cuatro paquetes oficiales de horarios: estructura weeks/groups y arrays de eventos comprobados.
+- Catálogo optativas: 9 materias y 532 sesiones comprobadas.
+- Catálogo de exámenes: 104 registros comprobados.
+- No se han alterado los archivos de datos fuente.
+
+PRUEBAS NO COMPLETADAS
+- Chromium headless se intentó de nuevo, pero el proceso se bloqueó durante el arranque y expiró el límite de 30 segundos; no se obtuvo DOM verificable.
+- No se pudo realizar prueba interactiva real de IndexedDB, importación/exportación con FileReader, migración, selección de optativas y sincronización de exámenes.
+- No se ha probado Safari/iPad ni instalación PWA real.
+
+RIESGOS/ASPECTOS PENDIENTES
+- La persistencia y la recuperación ante corrupción requieren prueba real con perfil de navegador.
+- La importación/exportación necesita prueba manual de ida y vuelta con un archivo generado por la propia aplicación.
+- El comportamiento de la interfaz en Safari/iPad sigue pendiente.
+- Esta entrega es una corrección de carga y una validación automatizada de datos/código; no constituye certificación funcional completa.

@@ -1,0 +1,25 @@
+MEDCALENDAR v5.3 — FASE 3: PERSONALIZAR
+
+Base: MedCalendar-v5.2-fase2-configuracion-inicial.zip
+Trabajo realizado en copia independiente. No se sobrescriben versiones anteriores.
+
+Cambios:
+- Reorganizada la pantalla Mi curso > Personalizar en secciones diferenciadas.
+- Asignaturas ordinarias del curso principal identificadas como sección propia.
+- Optativas del curso principal separadas de las ordinarias.
+- Asignaturas ordinarias de otros cursos en una tarjeta independiente.
+- Añadida una sección informativa diferenciada para optativas seleccionadas de otros cursos.
+- Acción Editar asignaturas separada del selector de asignaturas.
+- Diseño en dos columnas en pantallas amplias y una columna en móvil.
+- Eliminado de la vista el antiguo bloque de finalización de configuración inicial.
+- Conservados los identificadores que utiliza la lógica existente para no romper los selectores y la persistencia.
+
+Validación realizada:
+- node --check js/app.js: correcto.
+- Comprobación de IDs HTML duplicados: ninguno.
+- Comprobación de presencia de los controles referenciados por renderPlanControls: realizada.
+- No se ha realizado prueba real de navegador ni de interacción en iPad.
+
+Limitaciones conocidas:
+- La sección de optativas de otros cursos refleja las selecciones guardadas, pero no incorpora todavía un selector de edición propio. La lógica de incorporación y la selección automática de todas las sesiones se tratará en la fase específica de optativas.
+- La estructura visual separa los bloques; una prueba de usabilidad real en móvil y escritorio sigue pendiente.

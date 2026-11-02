@@ -1,0 +1,24 @@
+MedCalendar v5.0 — Fase 6: limpieza funcional
+
+Cambios realizados
+- Retirada de la interfaz y de los controladores del importador de horarios desde PDF.
+- Retirados los controles de importación/exportación de horarios individuales. Se mantienen las copias de seguridad completas desde el menú.
+- Retirada la opción de duplicar semanas.
+- Retirado el flujo antiguo «Mi plan» basado en copiar grupos completos.
+- Retirada la edición/creación manual de clases desde el calendario. Los horarios oficiales se consultan; la personalización académica se realiza desde Mi curso → Personalizar.
+- Retirada la gestión redundante de grupos personalizados desde Ajustes.
+- Los cambios puntuales de aula se han trasladado al editor de asignaturas: se elige una sesión concreta y se establece o restaura su aula sin modificar las demás sesiones.
+- La restauración del horario oficial del curso activo ya no vacía el objeto de datos personales ni los datos de exámenes; la confirmación informa de que los cambios hechos directamente sobre el horario oficial de ese curso sí se restaurarán.
+- Se conservan las estructuras heredadas de datos personales en el estado almacenado para evitar pérdidas durante esta limpieza.
+
+Comprobaciones realizadas
+- node --check js/app.js: correcto.
+- Todos los JSON de data/: parsean correctamente.
+- Referencias estáticas a IDs HTML: sin referencias ausentes (salvo elementos creados dinámicamente y un control antiguo opcional).
+- Búsqueda de controles retirados en HTML/JS: sin coincidencias.
+- El ZIP se genera desde esta copia de trabajo, sin modificar el ZIP original v4.0 ni los paquetes de fases anteriores.
+
+Pendiente
+- Pruebas funcionales completas en navegador real y en iPad/móvil/escritorio.
+- Prueba de regresión con una copia de datos reales para verificar la migración de configuraciones heredadas.
+- La limpieza no supone una auditoría completa de seguridad ni garantiza ausencia de pérdida ante borrado de datos del navegador o fallo del dispositivo. Mantener copias externas.

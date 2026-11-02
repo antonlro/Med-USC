@@ -1,0 +1,514 @@
+:root{--ink:#172b4d;--muted:#718096;--line:#e5eaf0;--paper:#f5f7fa;--primary:#315b91;--surface:#fff;--radius:16px;--shadow:0 8px 28px rgba(22,42,70,.07)}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:#233247;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:14px}.app-shell{max-width:1600px;margin:auto;min-height:100vh;padding:0 26px 18px}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);margin-bottom:20px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:42px;height:42px;border-radius:13px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;letter-spacing:-1px}.brand-title{font-weight:750;font-size:17px;color:var(--ink)}.brand-sub{font-size:12px;color:var(--muted);margin-top:2px}.top-actions,.toolbar-actions,.custom-actions,.week-arrows{display:flex;align-items:center;gap:9px}.offline-pill{font-size:11px;color:#39765b;background:#e9f6ef;padding:7px 10px;border-radius:99px}.offline-pill i{display:inline-block;width:7px;height:7px;background:#39a36d;border-radius:50%;margin-right:5px}.icon-btn,.small-btn,.text-btn,.secondary-btn,.primary-btn,.danger-btn{border:0;cursor:pointer;font:inherit;border-radius:10px;transition:.15s}.icon-btn{width:36px;height:36px;background:#f0f3f7;color:#42536b;font-size:21px;display:grid;place-items:center}.icon-btn:hover,.secondary-btn:hover,.small-btn:hover{background:#e5ebf3}.toolbar{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}.course-picker{display:flex;align-items:end;gap:9px}.course-picker label,.filter-block label,.view-mode label{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}.select-reset,select,input,textarea{font:inherit}select,input:not([type=checkbox]):not([type=color]),textarea{border:1px solid #dce3eb;border-radius:9px;background:white;padding:9px 11px;color:#26374d;min-height:38px}select:focus,input:focus,textarea:focus{outline:2px solid #c5d8f0;border-color:#82a5d0}.course-picker select{min-width:150px}.small-btn{background:#edf2f7;padding:9px 12px;color:#38516e}.secondary-btn{background:#edf1f6;color:#3d526d;padding:10px 13px;font-size:12px;font-weight:650}.primary-btn{background:var(--primary);color:white;padding:10px 15px;font-size:12px;font-weight:700;box-shadow:0 3px 8px #315b9125}.primary-btn:hover{filter:brightness(1.08)}.danger-btn{background:#fff0ef;color:#b33a35;padding:10px 13px;font-size:12px}.group-tabs{display:flex;gap:5px;border-bottom:1px solid var(--line);margin-bottom:17px;overflow:auto}.group-tab{border:0;background:transparent;padding:13px 20px;color:#718096;font-weight:750;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}.group-tab.active{color:var(--primary);border-bottom-color:var(--primary)}.group-tab.custom{margin-left:auto}.workspace{display:grid;grid-template-columns:210px minmax(0,1fr);gap:18px}.sidebar,.calendar-panel,.custom-panel{background:white;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar{padding:15px 12px;align-self:start;max-height:calc(100vh - 180px);overflow:auto}.sidebar-heading{display:flex;justify-content:space-between;align-items:center;padding:2px 5px 12px;font-size:10px;letter-spacing:.1em;font-weight:800;color:#8995a5}.text-btn{background:transparent;color:var(--primary);font-size:10px;font-weight:700;padding:4px}.week-list{display:flex;flex-direction:column;gap:4px}.week-item{border:0;background:transparent;text-align:left;padding:10px;border-radius:9px;color:#42536b;cursor:pointer}.week-item strong{display:block;font-size:12px}.week-item small{display:block;color:#8a97a8;margin-top:3px;font-size:10px}.week-item.active{background:#edf3fa;color:#244f83}.week-item.active small{color:#587ba5}.sidebar-note{font-size:10px;line-height:1.5;color:#99a3b0;border-top:1px solid var(--line);padding:12px 5px 0;margin-top:12px}.calendar-panel{padding:20px;min-width:0}.calendar-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.eyebrow{font-size:10px;font-weight:800;letter-spacing:.12em;color:#8290a2;margin-bottom:5px}.calendar-heading h1,.custom-intro h2,.modal h2{font-size:22px;color:var(--ink);margin:0;font-weight:760;letter-spacing:-.03em}.calendar-heading p{color:var(--muted);margin:5px 0 0;font-size:12px}.week-arrows{gap:5px}.filters-row{display:flex;align-items:end;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0;margin-bottom:14px}.filter-block select,.view-mode select{margin-top:6px;min-width:135px}.type-filters{display:flex;align-items:center;gap:13px;flex:1;flex-wrap:wrap}.type-filters label{display:flex;align-items:center;gap:6px;font-size:11px;color:#5e6d80;cursor:pointer}.type-filters input{accent-color:var(--primary)}.legend-dot{width:8px;height:8px;border-radius:3px;display:inline-block}.legend-dot.E{background:#8bb8f4}.legend-dot.S{background:#efbd69}.legend-dot.P{background:#7bc9a4}.calendar-grid{display:grid;grid-template-columns:62px repeat(5,minmax(105px,1fr));border:1px solid var(--line);border-radius:11px;overflow:hidden;min-width:0}.cal-head{background:#f7f9fb;padding:10px 6px;text-align:center;font-size:10px;font-weight:800;color:#68778b;border-bottom:1px solid var(--line)}.time-cell{padding:12px 6px;text-align:center;font-size:10px;font-weight:700;color:#8995a5;border-bottom:1px solid #edf0f4;background:#fafbfd}.day-cell{min-height:58px;padding:4px;border-left:1px solid #edf0f4;border-bottom:1px solid #edf0f4;min-width:0}.event{display:block;width:100%;border:0;border-left:3px solid var(--event-color);background:var(--event-bg);border-radius:6px;padding:6px 6px;margin:1px 0 4px;text-align:left;cursor:pointer;color:#30435a;overflow-wrap:anywhere}.event strong{display:block;font-size:10px;line-height:1.3;font-weight:750}.event span{display:block;font-size:9px;line-height:1.35;margin-top:3px;color:#617188}.event:hover{filter:brightness(.97);transform:translateY(-1px)}.empty-state{grid-column:1/-1;text-align:center;padding:45px 15px;color:#8390a0;font-size:13px}.calendar-foot{display:flex;justify-content:space-between;color:#98a3b1;font-size:10px;padding-top:11px}.custom-panel{margin-top:18px;padding:22px}.custom-intro{display:flex;justify-content:space-between;align-items:start;gap:20px}.custom-intro h2{font-size:21px}.custom-intro p{font-size:12px;line-height:1.5;color:var(--muted);max-width:620px}.custom-status{padding:13px;background:#f5f8fb;border-radius:10px;color:#62738a;font-size:12px;margin:12px 0}.custom-subjects{display:flex;gap:8px;flex-wrap:wrap}.subject-chip{border:1px solid var(--line);border-radius:99px;padding:7px 10px;font-size:11px;background:#fff}.subject-chip button{border:0;background:transparent;color:#b64b48;margin-left:6px;cursor:pointer}.pdf-import-area{margin-top:15px}.pdf-card{border:1px dashed #b7c6d8;border-radius:12px;padding:16px;background:#fafcff}.pdf-card-head{display:flex;justify-content:space-between;gap:12px}.pdf-card h3{margin:0;color:var(--ink);font-size:15px}.pdf-card p{color:var(--muted);font-size:11px;line-height:1.5}.pdf-status{font-size:11px;color:#63748a;margin:10px 0}.pdf-text{width:100%;resize:vertical;font-size:11px;line-height:1.45}.pdf-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}.hint{font-size:10px!important;color:#8b98a8!important}.footer{display:flex;justify-content:space-between;padding:18px 4px;color:#9aa5b2;font-size:10px}.modal-backdrop{position:fixed;inset:0;background:#14243a80;display:grid;place-items:center;padding:18px;z-index:20;overflow:auto}.modal{width:min(620px,100%);background:white;border-radius:18px;padding:22px;box-shadow:0 20px 80px #13233d40;max-height:calc(100vh - 36px);overflow:auto}.modal.compact{width:min(480px,100%)}.modal-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:18px}.modal h2{font-size:20px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form-grid label{display:flex;flex-direction:column;gap:6px;font-size:11px;color:#627188;font-weight:650}.form-grid input,.form-grid select{width:100%;min-width:0}.form-grid .full{grid-column:1/-1}.modal-actions{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:15px;border-top:1px solid var(--line)}.right-actions{display:flex;gap:8px}.hidden{display:none!important}
+@media(max-width:900px){.app-shell{padding:0 14px 15px}.toolbar{align-items:start;flex-direction:column}.toolbar-actions{flex-wrap:wrap}.workspace{grid-template-columns:170px minmax(0,1fr);gap:10px}.calendar-panel{padding:14px}.calendar-grid{grid-template-columns:48px repeat(5,minmax(82px,1fr))}.day-cell{padding:3px}.event{padding:5px 4px}.event strong{font-size:9px}.event span{font-size:8px}}
+@media(max-width:620px){.topbar{height:64px}.brand-mark{width:36px;height:36px}.brand-title{font-size:15px}.offline-pill{font-size:0;padding:8px}.offline-pill i{margin:0}.toolbar-actions{width:100%}.toolbar-actions button{flex:1}.group-tab{padding:11px 13px}.group-tab.custom{margin-left:0}.workspace{display:flex;flex-direction:column}.sidebar{max-height:none;padding:10px}.sidebar-heading{padding-bottom:8px}.week-list{display:flex;flex-direction:row;overflow-x:auto}.week-item{min-width:75px;padding:8px}.sidebar-note{display:none}.calendar-panel{padding:12px}.calendar-heading h1{font-size:19px}.filters-row{gap:10px}.type-filters{order:3;width:100%;flex-basis:100%}.calendar-grid{display:block;border:0;overflow:visible}.cal-head{display:none}.time-cell{display:none}.day-cell{border:1px solid var(--line);border-radius:10px;margin:8px 0;padding:9px;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:5px}.day-cell:before{content:attr(data-day);grid-column:1/-1;font-size:11px;font-weight:800;color:#65758b;padding:0 2px 5px}.event{margin:0;min-height:52px}.event strong{font-size:10px}.event span{font-size:9px}.empty-state{display:block;background:#f8fafc;border-radius:10px}.custom-intro{flex-direction:column}.custom-actions{width:100%;flex-wrap:wrap}.custom-actions button{flex:1}.form-grid{grid-template-columns:1fr 1fr}.footer{font-size:9px}.calendar-foot span:last-child{display:none}}
+@media(max-width:390px){.toolbar-actions{display:grid;grid-template-columns:1fr 1fr}.toolbar-actions .primary-btn{grid-column:1/-1}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}}
+.agenda-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.agenda-day{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:9px;min-width:0}.agenda-day h3{font-size:11px;margin:0 0 8px;color:#66768a}.agenda-event{margin:0 0 6px}.agenda-event strong{font-size:10px}.agenda-empty{font-size:10px;color:#a0a9b5}@media(max-width:620px){.agenda-list{grid-template-columns:1fr}.agenda-day{padding:10px}.agenda-event{min-height:0}.agenda-event strong{font-size:11px}}
+
+
+/* Responsive refinement v2.1 */
+html { -webkit-text-size-adjust: 100%; }
+body { min-width: 320px; }
+button, select, input, textarea { touch-action: manipulation; }
+button { -webkit-tap-highlight-color: transparent; }
+.app-shell { width: 100%; }
+.calendar-panel, .custom-panel, .sidebar { min-width: 0; }
+.group-tabs { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+.group-tabs::-webkit-scrollbar { height: 4px; }
+.group-tabs::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+
+@media (max-width: 620px) {
+  body { font-size: 14px; background: #f3f6fa; }
+  .app-shell { padding: env(safe-area-inset-top) 10px calc(14px + env(safe-area-inset-bottom)); max-width: 100%; }
+  .topbar { height: auto; min-height: 60px; margin: 0 -10px 12px; padding: 8px 12px; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
+  .brand { gap: 9px; min-width: 0; }
+  .brand-mark { width: 34px; height: 34px; border-radius: 10px; flex: 0 0 34px; font-size: 13px; }
+  .brand-title { font-size: 15px; }
+  .brand-sub { font-size: 10px; max-width: 190px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .top-actions { gap: 6px; }
+  .offline-pill { padding: 7px; }
+  .icon-btn { width: 38px; height: 38px; flex: 0 0 38px; }
+  .toolbar { gap: 11px; margin-bottom: 12px; }
+  .course-picker { width: 100%; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 7px; align-items: end; }
+  .course-picker label { grid-column: 1 / -1; font-size: 10px; }
+  .course-picker select { width: 100%; min-width: 0; }
+  .course-picker .small-btn { min-height: 40px; white-space: nowrap; padding: 8px 10px; }
+  .toolbar-actions { display: grid; width: 100%; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; }
+  .toolbar-actions button { width: 100%; min-width: 0; min-height: 40px; padding: 9px 7px; font-size: 11px; }
+  .toolbar-actions #addClassBtn { grid-column: 1 / -1; }
+  .group-tabs { gap: 3px; margin: 0 -2px 12px; padding: 0 2px 5px; border-bottom: 1px solid var(--line); overscroll-behavior-x: contain; }
+  .group-tab { flex: 0 0 auto; padding: 10px 13px; font-size: 12px; border-radius: 9px 9px 0 0; }
+  .group-tab.custom { margin-left: 0; }
+  .workspace { display: flex; flex-direction: column; gap: 10px; }
+  .sidebar { order: 0; max-height: none; padding: 9px 10px; border-radius: 12px; box-shadow: none; background: #fff; }
+  .sidebar-heading { padding: 0 2px 7px; font-size: 9px; }
+  .sidebar-heading .text-btn { font-size: 10px; }
+  .week-list { display: flex; flex-direction: row; gap: 6px; overflow-x: auto; padding: 1px 1px 3px; scrollbar-width: none; }
+  .week-list::-webkit-scrollbar { display: none; }
+  .week-item { flex: 0 0 78px; min-width: 78px; text-align: center; padding: 8px 5px; border: 1px solid #edf0f4; background: #fafbfd; }
+  .week-item strong { font-size: 11px; }
+  .week-item small { font-size: 9px; }
+  .week-item.active { border-color: #cbdcf0; background: #edf3fa; }
+  .sidebar-note { display: none; }
+  .calendar-panel { padding: 13px 11px; border-radius: 14px; box-shadow: 0 3px 14px rgba(22,42,70,.045); }
+  .calendar-heading { align-items: center; gap: 8px; margin-bottom: 12px; }
+  .eyebrow { font-size: 9px; margin-bottom: 4px; }
+  .calendar-heading h1 { font-size: 19px; line-height: 1.15; }
+  .calendar-heading p { font-size: 11px; margin-top: 4px; }
+  .week-arrows { gap: 5px; }
+  .week-arrows .icon-btn { width: 36px; height: 36px; flex-basis: 36px; }
+  .filters-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: end; gap: 10px 8px; padding: 10px 0; margin-bottom: 10px; }
+  .filter-block, .view-mode { min-width: 0; }
+  .filter-block label, .view-mode label { font-size: 9px; }
+  .filter-block select, .view-mode select { width: 100%; min-width: 0; margin-top: 5px; min-height: 39px; padding: 8px; font-size: 12px; }
+  .type-filters { grid-column: 1 / -1; order: initial; display: flex; gap: 9px 13px; width: 100%; flex-wrap: wrap; padding-top: 1px; }
+  .type-filters label { font-size: 10px; }
+  .type-filters input { width: 16px; height: 16px; margin: 0; }
+  .calendar-grid { display: block; min-width: 0; overflow: visible; border: 0; }
+  .cal-head, .time-cell { display: none !important; }
+  .agenda-list { display: grid; grid-template-columns: minmax(0,1fr); gap: 8px; }
+  .agenda-day { padding: 10px; border: 1px solid var(--line); border-radius: 11px; background: #fbfcfe; display: grid; grid-template-columns: minmax(0,1fr); gap: 6px; }
+  .agenda-day h3 { display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin: 0; padding: 0 1px 5px; color: #52647c; border-bottom: 1px solid #e9edf2; }
+  .agenda-event { display: grid; grid-template-columns: 54px minmax(0,1fr); align-items: center; gap: 7px; min-height: 48px; margin: 0; padding: 8px 9px; border-left-width: 4px; border-radius: 8px; text-align: left; }
+  .agenda-event strong { font-size: 11px; line-height: 1.3; }
+  .agenda-event span { font-size: 10px; line-height: 1.35; margin-top: 0; }
+  .agenda-empty { margin: 0; padding: 4px 1px; font-size: 10px; color: #a0a9b5; }
+  .empty-state { padding: 25px 12px; border-radius: 10px; background: #f8fafc; font-size: 12px; }
+  .calendar-foot { padding-top: 9px; font-size: 9px; }
+  .custom-panel { margin-top: 10px; padding: 14px 12px; border-radius: 14px; }
+  .custom-intro { flex-direction: column; gap: 8px; }
+  .custom-intro h2 { font-size: 18px; }
+  .custom-intro p { font-size: 11px; margin: 6px 0; }
+  .custom-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; width: 100%; }
+  .custom-actions button { min-width: 0; padding: 9px 6px; font-size: 10px; }
+  .custom-status { padding: 10px; font-size: 11px; }
+  .pdf-card { padding: 12px; }
+  .pdf-card-head { align-items: start; }
+  .pdf-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .pdf-actions button { min-width: 0; padding: 9px 5px; font-size: 10px; }
+  .footer { gap: 8px; padding: 13px 2px; font-size: 9px; }
+  .modal-backdrop { padding: 8px; align-items: end; }
+  .modal, .modal.compact { width: 100%; max-height: calc(100dvh - 16px - env(safe-area-inset-top)); border-radius: 18px 18px 10px 10px; padding: 17px 14px calc(14px + env(safe-area-inset-bottom)); }
+  .modal-head { margin-bottom: 13px; }
+  .modal h2 { font-size: 18px; }
+  .form-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 10px; }
+  .form-grid label { font-size: 10px; min-width: 0; }
+  .form-grid input, .form-grid select { min-height: 42px; font-size: 13px; }
+  .modal-actions { align-items: stretch; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .modal-actions > .right-actions { flex: 1; }
+  .right-actions button { flex: 1; min-height: 40px; padding: 8px 7px; }
+}
+@media (max-width: 380px) {
+  .app-shell { padding-left: 8px; padding-right: 8px; }
+  .topbar { margin-left: -8px; margin-right: -8px; padding-left: 10px; padding-right: 10px; }
+  .brand-sub { max-width: 145px; }
+  .toolbar-actions button { font-size: 10px; }
+  .group-tab { padding: 9px 11px; }
+  .calendar-panel { padding: 11px 9px; }
+  .agenda-event { grid-template-columns: 48px minmax(0,1fr); padding: 7px; }
+  .agenda-event strong { font-size: 10px; }
+  .agenda-event span { font-size: 9px; }
+  .form-grid { grid-template-columns: minmax(0,1fr); }
+  .form-grid .full { grid-column: auto; }
+}
+@media (min-width: 621px) and (max-width: 900px) {
+  .toolbar { align-items: stretch; }
+  .toolbar-actions { justify-content: flex-end; flex-wrap: wrap; }
+  .toolbar-actions button { min-height: 38px; }
+  .calendar-grid { overflow-x: auto; }
+}
+
+/* MedCalendar 2.2: navegación semestral, personalización y cambios puntuales */
+.semester-switch{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;margin:0 0 8px;background:#f3f6fa;border-radius:10px}
+.semester-switch button{border:0;border-radius:8px;background:transparent;color:#718096;padding:8px 5px;font:inherit;font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap}
+.semester-switch button.active{background:#fff;color:var(--primary);box-shadow:0 1px 4px #172b4d18}
+.punctual-option{padding:10px 12px;background:#fff6f6;border:1px solid #f2caca;border-radius:10px}
+.punctual-option span{display:flex;align-items:center;gap:8px;color:#b83232;font-size:12px;font-weight:750}
+.punctual-option input{accent-color:#cf3e3e;width:17px;height:17px}
+.punctual-option small{font-size:10px;line-height:1.45;color:#9d5555;font-weight:450}
+.event.punctual-event{border-left-color:#d33b3b!important;outline:1px solid #f1b7b7}
+@media(max-width:620px){.semester-switch{margin-bottom:8px}.week-list{scroll-snap-type:x mandatory;scroll-padding-inline:calc(50% - 39px);padding-inline:calc(50% - 39px);overscroll-behavior-x:contain;scroll-behavior:smooth}.week-item{scroll-snap-align:center;flex:0 0 78px;min-width:78px}.sidebar{overflow:hidden}.semester-switch button{font-size:10px;padding:9px 3px}}
+
+
+/* MedCalendar 2.3 · ajustes de interacción y controles */
+.event-type{font-weight:850;letter-spacing:.02em}
+.toolbar-actions{align-items:center}
+.more-menu{position:relative;flex:0 0 auto}
+.more-menu>summary{list-style:none;display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-size:24px;font-weight:800;line-height:1;cursor:pointer;user-select:none}
+.more-menu>summary::-webkit-details-marker{display:none}
+.more-menu[open]>summary{background:#edf3fa;border-color:#cbdcf0}
+.more-menu-panel{position:absolute;right:0;top:calc(100% + 7px);z-index:15;display:grid;gap:6px;min-width:190px;padding:9px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px #172b4d20}
+.more-menu-panel button{width:100%;text-align:left;justify-content:flex-start;white-space:nowrap}
+@media(max-width:620px){
+ .toolbar-actions{display:flex;flex-wrap:nowrap;gap:7px}
+ .toolbar-actions #addClassBtn{flex:1 1 auto;grid-column:auto}
+ .more-menu{flex:0 0 40px}
+ .more-menu>summary{width:40px;height:40px}
+ .sidebar{width:100%;min-width:0;max-width:100%;overflow:hidden}
+ .week-list{width:100%;min-width:0;max-width:100%;display:flex;flex-wrap:nowrap;overflow-x:auto!important;overflow-y:hidden;touch-action:pan-x;overscroll-behavior-x:contain;overscroll-behavior-y:auto;-webkit-overflow-scrolling:touch;contain:layout paint}
+ .week-item{flex:0 0 78px;min-width:78px}
+}
+
+/* MedCalendar 2.4 · navegación principal y filtros de Mi curso */
+.main-tabs{display:flex;gap:8px;margin:0 0 16px;padding:4px;background:#eaf0f6;border-radius:12px;width:max-content;max-width:100%}
+.main-tab{border:0;border-radius:9px;background:transparent;color:#63748a;padding:11px 22px;font:inherit;font-size:12px;font-weight:800;letter-spacing:.04em;cursor:pointer}
+.main-tab.active{background:#fff;color:var(--primary);box-shadow:0 2px 8px #172b4d12}
+.plan-controls{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:0 0 15px;box-shadow:0 3px 12px #172b4d08}
+.plan-controls-head{display:flex;justify-content:space-between;gap:12px}
+.plan-controls-head strong{font-size:13px;color:var(--ink)}
+.plan-controls-head p{font-size:11px;line-height:1.45;color:var(--muted);margin:5px 0 11px}
+.plan-add-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.plan-add-row select{min-width:155px;flex:1}
+.plan-add-row button{white-space:nowrap}
+.extra-subject-filters{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.extra-filter{display:flex;align-items:center;gap:6px;border:1px solid #dce5ef;background:#f8fafc;border-radius:99px;padding:6px 9px;font-size:11px;color:#40546e}
+.extra-filter input{accent-color:var(--primary);margin:0}.base-course-filter{background:#edf3fa;border-color:#c9d8e9;font-weight:750}
+.extra-filter small{font-size:9px;color:#8391a3}
+.extra-filter button{border:0;background:transparent;color:#a34a48;font-size:16px;line-height:1;cursor:pointer;padding:0 0 0 2px}
+.plan-data-notice{font-size:10px;color:#9a6a25;margin-top:8px}
+.event-type{font-weight:900}
+.extra-event{border-left-style:dashed;opacity:.94;cursor:default}
+@media(max-width:620px){.main-tabs{display:grid;grid-template-columns:1fr 1fr;width:100%;margin-bottom:11px}.main-tab{padding:10px 8px}.plan-controls{padding:12px;margin-bottom:10px}.plan-add-row{display:grid;grid-template-columns:1fr 1fr}.plan-add-row button{grid-column:1/-1}.plan-add-row select{min-width:0;width:100%}.extra-subject-filters{gap:6px}.extra-filter{font-size:10px;padding:6px 8px}}
+@media(max-width:620px){.group-tabs{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;touch-action:pan-x;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;contain:layout paint}.group-tab{flex:0 0 auto}}
+
+
+/* MedCalendar 2.7 · Mi semana y selección de clases adicionales */
+.week-view{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:18px;min-width:0}
+.week-view-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:15px}
+.week-view-head h1{font-size:22px;color:var(--ink);margin:0}.week-view-head p{font-size:12px;color:var(--muted);margin:5px 0 0}
+.week-view-controls{display:flex;align-items:center;gap:7px}.week-view-controls button:disabled{opacity:.4}
+.personal-week-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.personal-day{min-width:0;background:#f8fafc;border:1px solid var(--line);border-radius:11px;padding:10px}
+.personal-day h3{font-size:12px;color:#5f7087;margin:0 0 10px}
+.personal-event{display:flex;gap:8px;padding:9px 8px;margin:0 0 7px;border-left:3px solid var(--event-color);background:var(--event-bg);border-radius:7px;min-width:0}
+.personal-event-time{font-size:10px;font-weight:800;color:#42536b;white-space:nowrap;padding-top:1px}
+.personal-event-main{min-width:0}.personal-event-main strong{display:block;font-size:11px;line-height:1.35;color:#30435a}.personal-event-main span{display:block;font-size:9px;line-height:1.4;color:#617188;margin-top:3px;overflow-wrap:anywhere}
+.week-empty{font-size:10px;color:#9aa5b2;padding:10px 2px;margin:0}
+.week-day-strip{display:none}.week-view-nav-label{font-weight:750;color:var(--ink);margin:5px 0 12px;text-transform:capitalize}
+.extra-subject-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:5px 7px;border:1px solid #e2e9f1;border-radius:11px;background:#fbfcfe}
+.extra-subject-row .extra-filter{border:0;background:transparent;padding:3px 4px;flex:1 1 125px}
+.extra-subject-row select{min-width:88px;padding:6px 8px;min-height:30px;font-size:10px}
+.remove-extra{border:0;background:transparent;color:#a34a48;font-size:17px;cursor:pointer}
+.event-wrap{min-width:0}.add-session-btn{display:block;width:100%;border:1px solid #cbd9e8;background:#fff;color:#315b91;border-radius:6px;padding:4px 5px;margin:3px 0 5px;font-size:9px;font-weight:750;cursor:pointer}.add-session-btn.selected{background:#eaf5ee;border-color:#b8d9c2;color:#32714b}
+@media(max-width:900px){.personal-week-grid{gap:6px}.personal-day{padding:7px}.personal-event{display:block;padding:7px}.personal-event-time{margin-bottom:3px}}
+@media(max-width:620px){.week-view{padding:12px}.week-view-head{align-items:flex-start}.week-view-head h1{font-size:19px}.week-view-controls{gap:4px}.week-view-controls .secondary-btn{padding:8px 10px}.week-day-strip{display:flex;gap:6px;overflow-x:auto;padding:3px 0 10px}.weekday-chip{flex:1 0 0;min-width:0;border:1px solid var(--line);background:#f8fafc;border-radius:9px;padding:8px 4px;color:#607188;font-size:10px;font-weight:750}.weekday-chip small{display:block;font-size:11px;margin-top:4px}.weekday-chip.active{background:#eaf1f9;border-color:#a9c1dc;color:#244f83}.personal-week-grid{grid-template-columns:1fr}.personal-day{display:none}.personal-event{display:flex;padding:10px}.personal-event-time{min-width:88px;margin:0}.extra-subject-row{width:100%}.extra-subject-row select{flex:1}.add-session-btn{font-size:10px;padding:6px}}
+
+.remove-personal-event{align-self:flex-start;border:0;background:#ffffffb8;color:#9b4c4c;border-radius:6px;font-size:16px;line-height:1;padding:3px 7px;cursor:pointer}
+
+
+/* Ayuda guiada */
+.top-actions{position:relative}
+.help-menu{position:relative}
+.help-menu>summary{list-style:none;display:grid;place-items:center;font-weight:800;font-size:16px;cursor:pointer}
+.help-menu>summary::-webkit-details-marker{display:none}
+.help-menu-panel{position:absolute;right:0;top:calc(100% + 9px);z-index:60;width:210px;padding:7px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 35px #172b4d20}
+.help-menu-panel button{display:block;width:100%;border:0;background:transparent;text-align:left;padding:10px;border-radius:8px;color:#40536b;font-size:12px;cursor:pointer}
+.help-menu-panel button:hover{background:#f0f4f8}
+.tutorial-layer{position:fixed;inset:0;z-index:1000;background:#10203955}
+.tutorial-spotlight{position:fixed;left:50%;top:35%;width:180px;height:70px;border:2px solid #fff;border-radius:12px;box-shadow:0 0 0 9999px #10203999,0 0 0 5px #ffffff30;pointer-events:none;transition:all .18s ease}
+.tutorial-card{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);width:min(520px,calc(100vw - 28px));background:#fff;border:1px solid #dce4ee;border-radius:18px;padding:19px 20px 15px;box-shadow:0 18px 60px #0c1d3440;color:#263a53}
+.tutorial-card-top{display:flex;justify-content:space-between;align-items:center}
+.tutorial-kicker{font-size:10px;font-weight:850;letter-spacing:.12em;color:var(--primary)}
+.tutorial-close{border:0;background:#eef2f6;color:#617187;border-radius:50%;width:28px;height:28px;font-size:19px;cursor:pointer}
+.tutorial-card h2{font-size:19px;line-height:1.25;margin:10px 0 7px;color:#20334d}
+.tutorial-card p{font-size:13px;line-height:1.55;color:#5d6e83;margin:0;min-height:42px}
+.tutorial-progress{display:flex;gap:5px;margin:16px 0 13px}
+.tutorial-progress span{height:4px;flex:1;border-radius:5px;background:#e5ebf2}
+.tutorial-progress span.active{background:var(--primary)}
+.tutorial-actions{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tutorial-actions>div{display:flex;gap:7px}
+.tutorial-actions button{font-size:11px}
+.tutorial-skip{border:0;background:transparent;color:#7c8999;padding:9px 4px;cursor:pointer}
+@media(max-width:620px){.tutorial-card{bottom:12px;padding:16px;border-radius:15px}.tutorial-card h2{font-size:17px}.tutorial-card p{font-size:12px}.tutorial-spotlight{border-radius:9px}}
+
+/* Elección inicial del tutorial */
+.tutorial-choice-backdrop{position:fixed;inset:0;z-index:1100;display:grid;place-items:center;padding:18px;background:#10203988}
+.tutorial-choice-card{width:min(460px,100%);padding:24px;background:#fff;border:1px solid #dce4ee;border-radius:18px;box-shadow:0 18px 60px #0c1d3440;color:#263a53}
+.tutorial-choice-card h2{font-size:21px;line-height:1.25;margin:10px 0 8px;color:#20334d}
+.tutorial-choice-card p{font-size:13px;line-height:1.6;color:#5d6e83;margin:0}
+.tutorial-choice-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:22px}
+@media(max-width:520px){.tutorial-choice-card{padding:20px}.tutorial-choice-card h2{font-size:19px}.tutorial-choice-actions{flex-direction:column-reverse}.tutorial-choice-actions button{width:100%}}
+.tutorial-choice-backdrop.hidden{display:none}
+
+/* Med USC · identidad visual inspirada en la maqueta aprobada */
+:root { --ink:#082f68; --primary:#073575; }
+.topbar {
+  background:#073575;
+  color:#fff;
+  margin:0 -26px 20px;
+  padding:0 26px;
+  border:0;
+  border-radius:0 0 12px 12px;
+}
+.brand { gap:11px; }
+.brand-mark {
+  display:block;
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  object-fit:cover;
+  border-radius:9px;
+  background:#fff;
+}
+.brand-title { color:#fff; font-size:19px; font-weight:750; }
+.brand-sub { display:none; }
+.topbar .icon-btn {
+  color:#fff;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.48);
+}
+.topbar .icon-btn:hover { background:rgba(255,255,255,.13); }
+.main-tabs {
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  background:#edf3fb;
+  border:1px solid #dce7f5;
+}
+.main-tab { color:#244a7d; text-transform:none; letter-spacing:0; }
+.main-tab.active { color:#073575; background:#dce9fb; box-shadow:none; }
+@media(max-width:900px) {
+  .topbar { background:#073575; margin:0 -14px 14px; padding:0 14px; }
+}
+@media(max-width:620px) {
+  .topbar { height:64px; min-height:64px; background:#073575; margin:0 -14px 12px; padding:0 12px; }
+  .brand-mark { width:38px; height:38px; flex-basis:38px; }
+  .brand-title { color:#fff; font-size:16px; }
+  .main-tabs { grid-template-columns:repeat(3,minmax(0,1fr)); gap:3px; padding:3px; }
+  .main-tab { padding:10px 3px; font-size:10px; }
+}
+
+/* Configuración académica inicial y reversible */
+.academic-profile-panel,.course-not-configured,.week-not-configured{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px 18px;margin:0 0 15px;box-shadow:0 3px 12px #172b4d08}
+.academic-profile-panel{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.academic-profile-panel strong,.course-not-configured h2,.week-not-configured h2{display:block;color:var(--ink);font-size:15px;margin:4px 0}
+.academic-profile-panel p,.course-not-configured p,.week-not-configured p{font-size:12px;line-height:1.5;color:var(--muted);margin:5px 0 0}
+.course-not-configured,.week-not-configured{text-align:center;padding:30px 20px}
+.course-not-configured .primary-btn,.week-not-configured .primary-btn{margin-top:16px}
+.week-subgroup-notice{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;margin-bottom:13px;background:#edf4fd;border:1px solid #d4e3f7;border-radius:10px;color:#244a7d;font-size:12px;font-weight:700}
+.setup-backdrop{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:18px;background:#071d3dcc;overflow-y:auto}
+.setup-backdrop.hidden{display:none}
+.setup-card{width:min(540px,100%);max-height:calc(100dvh - 36px);overflow-y:auto;background:#fff;border-radius:20px;padding:25px;box-shadow:0 22px 70px #06172e55;color:#263a53}
+.setup-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px;color:var(--primary)}
+.setup-brand img{width:52px;height:52px;border-radius:12px}
+.setup-brand strong{font-size:20px}
+.setup-card h2{font-size:23px;line-height:1.25;color:#173b70;margin:8px 0}
+.setup-intro{font-size:13px;line-height:1.55;color:#64748b;margin:0 0 18px}
+.setup-fields{display:grid;gap:13px}
+.setup-fields label{display:grid;gap:6px;font-size:12px;font-weight:750;color:#304967}
+.setup-fields label span{font-weight:500;color:#8492a6}
+.setup-fields select{width:100%;min-height:42px;border:1px solid #d4deeb;border-radius:9px;padding:9px 11px;background:#fff;color:#1e3b61;font:inherit}
+.setup-fields select:disabled{background:#f4f6f9;color:#9aa5b3}
+.setup-reassurance{display:grid;gap:4px;background:#edf4fd;border:1px solid #d9e7f8;border-radius:11px;padding:12px;margin-top:17px}
+.setup-reassurance strong{font-size:12px;color:#17477f}.setup-reassurance span{font-size:11px;line-height:1.5;color:#58708d}
+.setup-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+.setup-actions>div{display:flex;gap:8px;margin-left:auto}
+.setup-actions button{font-size:11px}
+@media(max-width:560px){.setup-card{padding:20px;border-radius:16px}.setup-card h2{font-size:20px}.setup-actions{align-items:stretch;flex-direction:column-reverse}.setup-actions>div{margin:0;display:grid;grid-template-columns:1fr 1fr}.setup-actions>button{width:100%}.academic-profile-panel{align-items:flex-start;flex-direction:column}.week-subgroup-notice{align-items:flex-start;flex-direction:column}}
+.personal-event.personal-extra-event{border-left-style:dashed}
+
+/* Med USC v4.0 preview: course workspace and mobile navigation */
+.course-subtabs{display:flex;gap:7px;margin:0 0 14px;padding:4px;background:#eaf0f6;border-radius:11px;width:max-content;max-width:100%}.course-subtab{border:0;border-radius:8px;background:transparent;color:#63748a;padding:10px 18px;font:inherit;font-size:12px;font-weight:800;cursor:pointer}.course-subtab.active{background:#fff;color:var(--primary);box-shadow:0 2px 8px #172b4d12}
+.excluded-subjects-panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 14px;box-shadow:0 3px 12px #172b4d08}.excluded-subjects-panel strong{font-size:14px}.excluded-subjects-panel p{font-size:11px;color:var(--muted);margin:5px 0 12px}.excluded-subjects-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}.excluded-subject-item{display:flex;align-items:center;gap:8px;padding:9px 10px;border:1px solid var(--line);border-radius:9px;font-size:12px;background:#fbfcfe}.excluded-subject-item input{accent-color:var(--primary);width:16px;height:16px}
+.mobile-nav{display:none;position:relative}.mobile-nav summary{list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:12px;font-weight:800;background:#fff}.mobile-nav summary::-webkit-details-marker{display:none}.mobile-nav-panel{position:absolute;right:0;top:calc(100% + 8px);z-index:30;min-width:190px;padding:7px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px #172b4d22}.mobile-nav-panel button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:12px;border-radius:8px;font:inherit;font-size:13px;color:var(--ink)}.mobile-nav-panel button:active,.mobile-nav-panel button:hover{background:#edf3fa}
+@media(max-width:620px){.mobile-nav{display:block}.main-tabs{display:none}.topbar{gap:8px}.top-actions{margin-left:auto}.course-subtabs{width:100%;display:grid;grid-template-columns:1fr 1fr}.course-subtab{padding:11px 8px}.excluded-subjects-panel{padding:13px}.excluded-subjects-list{grid-template-columns:1fr}}
+
+/* Recuperación segura: no se ofrece iniciar desde cero si falla la lectura. */
+.storage-recovery{max-width:760px;margin:28px auto;padding:24px;border:1px solid #d6a45c;border-radius:16px;background:#fff9ed;color:#49371e}
+.storage-recovery h2{margin:0 0 10px;font-size:1.25rem}
+.storage-recovery p{line-height:1.55}
+.storage-recovery-detail{font-size:.92rem;color:#765b35}
+
+.optatives-manager{margin-top:1.25rem;padding:1rem;border:1px solid var(--line,#dce3ed);border-radius:14px;background:var(--surface,#fff)}.optatives-manager>strong{display:block;margin:.25rem 0}.optatives-manager>p{color:var(--muted,#667085);font-size:.9rem}.optatives-manager .plan-add-row{margin:.75rem 0}.optatives-manager .plan-add-row select{min-width:0;flex:1}
+/* Calendario de exámenes */
+.exams-view{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.exams-heading{display:flex;justify-content:space-between;align-items:start;gap:18px}.exams-heading h1{font-size:24px;margin:0;color:var(--ink)}.exams-heading p{font-size:12px;color:var(--muted);max-width:680px;line-height:1.5}
+.exams-filters{display:flex;gap:12px;flex-wrap:wrap;padding:14px 0;margin:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.exams-filters label{display:flex;flex-direction:column;gap:5px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.exams-filters select{min-width:155px}
+.exam-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);border-radius:10px;overflow:hidden}.exam-day-head{text-align:center;background:#f6f8fb;padding:9px;font-size:10px;font-weight:800;color:#68778b;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.exam-day{min-height:88px;padding:6px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}.exam-day>strong{font-size:10px;color:#8793a2}.exam-day.empty{background:#fafbfd}.exam-chip{display:block;width:100%;text-align:left;border:0;border-left:3px solid #8ba9cf;border-radius:5px;background:#eef4fb;color:#344a65;padding:4px;margin-top:4px;font-size:9px;line-height:1.25;cursor:pointer;overflow-wrap:anywhere}.exam-chip span{display:block;font-weight:800;margin-bottom:2px}.exam-chip.modified,.exam-row.modified{border-left-color:#d39a45}.exam-chip.personal,.exam-row.personal{border-left-color:#7b9e84}.exam-chip.continuous{border-left-color:#8c83bd}
+.exam-list{margin-top:22px}.exam-list h2{font-size:16px;color:var(--ink)}.exam-row{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);border-left:4px solid #8ba9cf;border-radius:9px;padding:10px 12px;background:#fff;margin:6px 0;cursor:pointer}.exam-row:hover{background:#f8fafc}.exam-date{width:145px;flex-shrink:0;color:#65758a;font-size:11px}.exam-info{flex:1;min-width:0}.exam-info strong{display:block;font-size:12px;color:#30435a}.exam-info small{display:block;font-size:10px;color:#8390a0;margin-top:3px}.exam-state{font-size:9px;color:#758398;white-space:nowrap}.exam-source-note{font-size:10px;color:#8a96a6;margin:14px 0 0}.exam-calendar .empty-state{padding:15px}
+@media(max-width:620px){.exams-view{padding:13px}.exams-heading{flex-direction:column}.exams-heading button{width:100%}.exams-filters{display:grid;grid-template-columns:1fr 1fr;gap:9px}.exams-filters select{min-width:0;width:100%}.exam-day{min-height:65px;padding:3px}.exam-chip{font-size:8px;padding:3px}.exam-date{width:92px;font-size:10px}.exam-row{gap:7px;padding:8px}.exam-state{display:none}}
+
+/* MedCalendar v5 · navegación inferior persistente */
+.main-tabs,.mobile-nav{display:none!important}
+.app-shell{padding-bottom:calc(104px + env(safe-area-inset-bottom))}
+.bottom-nav{position:fixed;z-index:80;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,calc(100vw - 28px));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border:1px solid #dfe6ef;border-bottom:0;border-radius:18px 18px 0 0;box-shadow:0 -8px 30px rgba(23,43,77,.10);backdrop-filter:blur(16px)}
+.bottom-nav-item{min-width:0;min-height:54px;border:0;border-radius:12px;background:transparent;color:#718096;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:inherit;font-size:10px;font-weight:700;cursor:pointer}
+.bottom-nav-icon{font-size:20px;line-height:1.1;font-weight:500}
+.bottom-nav-item.active{color:var(--primary);background:#edf3fa}
+.bottom-nav-item[aria-current="page"]{color:var(--primary)}
+.toolbar-actions{display:none!important}
+#personalizeSubjectsBtn{grid-column:1/-1;justify-self:start}
+.app-menu-backdrop{position:fixed;inset:0;z-index:100;background:rgba(13,28,48,.38);display:flex;align-items:flex-end;justify-content:center;padding:16px}
+.app-menu-panel{width:min(520px,100%);background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 20px 70px rgba(12,29,52,.25);margin-bottom:calc(68px + env(safe-area-inset-bottom))}
+.app-menu-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.app-menu-head h2{margin:0;color:var(--ink);font-size:21px}
+.app-menu-action{display:block;width:100%;text-align:left;padding:14px 12px;margin:4px 0;border:0;border-radius:11px;background:#f5f7fa;color:#26374d;font:inherit;font-size:14px;font-weight:650;cursor:pointer}
+.app-menu-action:hover{background:#eaf0f6}.app-menu-note{margin:13px 2px 0;color:var(--muted);font-size:11px;line-height:1.5}
+@media(min-width:621px){.bottom-nav{bottom:12px;border:1px solid #dfe6ef;border-radius:18px;padding-bottom:8px}.app-shell{padding-bottom:110px}}
+@media(max-width:620px){.app-shell{padding-left:10px;padding-right:10px;padding-bottom:calc(94px + env(safe-area-inset-bottom))}.bottom-nav{width:100%;left:0;transform:none;border-radius:16px 16px 0 0;padding-left:5px;padding-right:5px;gap:1px}.bottom-nav-item{font-size:9px;min-height:52px}.bottom-nav-icon{font-size:19px}.app-menu-backdrop{padding:8px}.app-menu-panel{margin-bottom:calc(65px + env(safe-area-inset-bottom));padding:17px}}
+/* Settings and help are consolidated under the persistent Menu destination. */
+#settingsBtn,.help-menu{display:none!important}
+#initialPersonalizationNotice{margin:0 0 16px;gap:9px}
+#initialPersonalizationNotice .primary-btn{justify-self:start}
+
+/* Corrección responsive detectada en Chromium: el encabezado debe compensar exactamente el padding del contenedor. */
+@media(max-width:620px){.topbar{margin-left:-10px;margin-right:-10px}}
+
+/* MedCalendar v5.1 · navegación diferenciada por dispositivo e iconografía SVG */
+.icon-sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ui-icon{width:19px;height:19px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.main-tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding:8px;margin:0 0 16px;border:1px solid #dce7f5;border-radius:15px;background:#edf3fb}
+.main-tab{min-height:54px;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border:1px solid transparent;border-radius:11px;background:transparent;color:#315477;font-size:13px;font-weight:750;letter-spacing:0;text-transform:none;cursor:pointer;transition:background .16s ease,border-color .16s ease,box-shadow .16s ease}
+.main-tab .ui-icon{width:20px;height:20px}
+.main-tab:hover{background:#fff;border-color:#dce7f5}
+.main-tab.active{background:#fff;border-color:#c9d9ed;color:#073575;box-shadow:0 2px 8px rgba(23,43,77,.08)}
+.bottom-nav{display:none!important}
+.mobile-nav{display:none!important}
+.desktop-menu-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 13px;border:1px solid rgba(255,255,255,.48);border-radius:10px;background:transparent;color:#fff;font:inherit;font-size:12px;font-weight:750;cursor:pointer}
+.desktop-menu-btn:hover{background:rgba(255,255,255,.13)}
+.desktop-menu-btn .ui-icon{width:17px;height:17px}
+.app-shell{padding-bottom:24px}
+.app-menu-backdrop{align-items:center}
+.app-menu-panel{margin-bottom:0}
+@media(max-width:700px){
+  .main-tabs{display:none!important}
+  .desktop-menu-btn{display:none}
+  .bottom-nav{display:grid!important;position:fixed;z-index:80;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,calc(100vw - 28px));grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border:1px solid #dfe6ef;border-bottom:0;border-radius:17px 17px 0 0;box-shadow:0 -8px 30px rgba(23,43,77,.10);backdrop-filter:blur(16px)}
+  .bottom-nav-item{min-width:0;min-height:53px;border:0;border-radius:11px;background:transparent;color:#718096;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:inherit;font-size:10px;font-weight:700;cursor:pointer}
+  .bottom-nav-icon{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .bottom-nav-item.active,.bottom-nav-item[aria-current="page"]{color:var(--primary);background:#edf3fa}
+  .app-shell{padding-bottom:calc(94px + env(safe-area-inset-bottom))}
+  .app-menu-backdrop{align-items:flex-end;padding:8px}
+  .app-menu-panel{margin-bottom:calc(65px + env(safe-area-inset-bottom))}
+}
+@media(min-width:701px){
+  .main-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .bottom-nav{display:none!important}
+  .toolbar-actions{display:flex!important}
+}
+
+/* Asistente inicial completo */
+.onboarding-card{width:min(680px,calc(100vw - 28px));max-height:min(88vh,900px);overflow:auto}.onboarding-progress{margin:18px 0 8px;color:var(--primary);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.onboarding-body{max-height:48vh;overflow:auto;padding:4px 2px}.onboarding-body h3{margin:18px 0 8px;font-size:.95rem}.onboarding-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.onboarding-checks label{display:flex;align-items:flex-start;gap:10px;padding:11px;border:1px solid var(--border,#dce3ed);border-radius:12px;background:var(--card,#fff);cursor:pointer}.onboarding-checks input{margin-top:3px;accent-color:var(--primary)}.onboarding-checks span{display:flex;flex-direction:column;gap:3px}.onboarding-checks small{font-size:.76rem;color:var(--muted,#68758a)}@media(max-width:560px){.onboarding-checks{grid-template-columns:1fr}.onboarding-card{padding:20px}}
+
+/* Fase 3: organización de Personalizar */
+#planControls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+#planControls .personalize-card,.own-regular-card{background:var(--card, #fff);border:1px solid var(--line, #dce3ec);border-radius:18px;padding:18px;min-width:0;box-shadow:0 3px 14px rgba(20,45,80,.045)}
+#planControls .personalize-card .eyebrow,.own-regular-card .eyebrow{font-size:.7rem;letter-spacing:.08em;font-weight:750;color:var(--muted,#64748b);margin-bottom:7px}
+#planControls .personalize-card>strong,.own-regular-card strong{display:block;font-size:1rem;margin-bottom:6px}
+#planControls .personalize-card>p,.own-regular-card p{color:var(--muted,#64748b);font-size:.88rem;line-height:1.45;margin:5px 0 14px}
+#planControls .plan-add-row{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+#planControls .plan-add-row select{flex:1 1 130px;min-width:0}
+#planControls .subject-edit-card{grid-column:1/-1;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#planControls .subject-edit-card .eyebrow{width:100%;margin-bottom:-8px}
+#planControls .subject-edit-card p{flex:1;margin:0}
+.own-regular-card{margin-bottom:16px}
+@media(max-width:700px){#planControls{grid-template-columns:1fr;gap:12px}#planControls .subject-edit-card{grid-column:auto;align-items:flex-start}#planControls .subject-edit-card p{flex-basis:100%}.own-regular-card{padding:15px}}
+/* Mi semana: la procedencia y la condición de optativa son atributos independientes. */
+.personal-event.personal-other-course-event{border-left-style:dashed}
+.personal-event.personal-optative-event{border-top:1px solid color-mix(in srgb,var(--event-color) 35%,transparent)}
+.optative-badge{display:inline-block;vertical-align:middle;margin-left:5px;padding:2px 5px;border-radius:4px;background:#fff;color:#496b91;border:1px solid #9bb1c9;font-size:8px;font-weight:800;letter-spacing:.04em;line-height:1.2}
+/* Fase 6: calendario y lista comparten el color configurado de la asignatura. */
+.exam-chip,.exam-row{border-left-color:var(--exam-subject-color,#8ba9cf)}
+.exam-chip{background:color-mix(in srgb,var(--exam-subject-color,#dce8f7) 28%,white);color:var(--ink)}
+.exam-chip span{font-size:9px;font-weight:800;line-height:1.2}
+.exam-chip small{display:block;font-size:9px;font-weight:700;opacity:.78}
+.exam-row{border-top-color:color-mix(in srgb,var(--exam-subject-color,#dce8f7) 45%,white);border-right-color:color-mix(in srgb,var(--exam-subject-color,#dce8f7) 45%,white);border-bottom-color:color-mix(in srgb,var(--exam-subject-color,#dce8f7) 45%,white)}
+@media(max-width:620px){.exam-chip span{font-size:8px}.exam-chip small{font-size:8px}}
+
+/* MedCalendar v5.9 · Personalizar en dos bloques equivalentes */
+#planControls.plan-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;background:transparent;border:0;border-radius:0;padding:0;margin:0 0 18px;box-shadow:none;align-items:start}
+#planControls>.personalize-card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 3px 14px #172b4d08}
+#planControls .own-course-card>strong,#planControls .other-course-card>strong{display:block;font-size:19px;color:var(--ink);margin:5px 0 12px}
+#planControls .own-course-card>.excluded-subjects-panel,#planControls .own-course-card>.own-optatives-card,
+#planControls .other-course-card>.other-regular-card,#planControls .other-course-card>.other-optatives-card{display:block;background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;padding:15px 0 0;margin:15px 0 0}
+#planControls .excluded-subjects-panel strong,#planControls .own-optatives-card>strong,#planControls .other-regular-card>strong,#planControls .other-optatives-card>strong{display:block;font-size:13px;color:var(--ink);margin:0 0 7px}
+#planControls .excluded-subjects-panel p,#planControls .own-optatives-card p,#planControls .other-regular-card p,#planControls .other-optatives-card p{font-size:12px;line-height:1.5;color:var(--muted);margin:5px 0 11px}
+#planControls .excluded-subjects-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+#planControls .excluded-subject-item{min-width:0;font-size:11px;padding:8px}
+#planControls .plan-add-row{align-items:stretch}
+#planControls .plan-add-row select{min-width:0;max-width:100%}
+#planControls .personalize-bottom-actions{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+#planControls .personalize-bottom-actions>.academic-profile-panel,
+#planControls .personalize-bottom-actions>.subject-edit-card{min-width:0;margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 3px 12px #172b4d08}
+#planControls .personalize-bottom-actions>.academic-profile-panel{display:flex;align-items:center;justify-content:space-between}
+#planControls .personalize-bottom-actions .subject-edit-card strong{display:block;font-size:14px;color:var(--ink);margin:5px 0}
+#planControls .personalize-bottom-actions .subject-edit-card p{font-size:11px;line-height:1.5;color:var(--muted);margin:5px 0 12px}
+#planControls .personalize-bottom-actions .eyebrow{font-size:10px;letter-spacing:.12em;font-weight:850;color:var(--muted)}
+@media(max-width:760px){#planControls.plan-controls{grid-template-columns:1fr;gap:12px}#planControls .personalize-bottom-actions{grid-template-columns:1fr}#planControls>.personalize-card{padding:15px}#planControls .excluded-subjects-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){#planControls .excluded-subjects-list{grid-template-columns:1fr}#planControls .plan-add-row{display:grid;grid-template-columns:1fr}#planControls .plan-add-row button{grid-column:auto;width:100%}#planControls .personalize-bottom-actions>.academic-profile-panel{align-items:flex-start;flex-direction:column}}
+
+/* Selector mensual simplificado y categorías inequívocas de exámenes */
+.exam-category-legend{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:13px 0 7px;margin:10px 0 4px;border-top:1px solid var(--line)}
+.exam-category-legend>span{display:grid;grid-template-columns:13px auto;column-gap:8px;align-items:center}
+.exam-category-legend i{grid-row:1/3;width:12px;height:12px;border-radius:4px}
+.exam-category-legend .final-dot{background:#2d6db5}.exam-category-legend .recovery-dot{background:#d58a27}
+.exam-category-legend strong{font-size:12px;color:var(--ink)}.exam-category-legend small{font-size:10px;color:var(--muted)}
+.exam-month-picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:10px 0 18px}
+.exam-month-picker button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0;min-height:68px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:0 2px 8px #172b4d06}
+.exam-month-picker button:hover{border-color:#a9bfd9;background:#f9fbfe}.exam-month-picker button.active{border-color:var(--primary);box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 13%,transparent);background:#f5f8fc}
+.exam-month-picker button>span:first-child{font-size:12px;font-weight:850}.exam-month-picker button>small{font-size:10px;color:var(--muted)}
+.exam-month-markers{display:flex;gap:4px;width:100%;margin-top:5px}.exam-month-markers i{display:block;height:5px;flex:1;border-radius:99px;background:#e8edf3}.exam-month-markers i.final-present{background:#2d6db5}.exam-month-markers i.recovery-present{background:#d58a27}
+.exam-chip.final-exam,.exam-row.final-exam{border-left-color:#2d6db5;background:#edf4fc}
+.exam-chip.recovery-exam,.exam-row.recovery-exam{border-left-color:#d58a27;background:#fff5e8}
+.exam-row.final-exam,.exam-row.recovery-exam{border-top-color:var(--line);border-right-color:var(--line);border-bottom-color:var(--line)}
+.exam-chip.final-exam{color:#234b79}.exam-chip.recovery-exam{color:#805018}
+@media(max-width:760px){.exam-month-picker{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:420px){.exam-month-picker{grid-template-columns:repeat(2,minmax(0,1fr))}.exam-category-legend{gap:12px}.exams-view{padding:13px}.exam-row{align-items:flex-start;gap:8px;padding:9px}.exam-date{width:92px;font-size:10px}}
+.optative-calendar-event{border-left-style:solid;outline:1px solid color-mix(in srgb,var(--event-color) 22%,transparent);outline-offset:-1px}
+.optative-calendar-event .optative-badge{font-size:7px;padding:1px 4px;margin-left:3px}
+/* Ajustes de la estructura anidada tras montar las cuatro secciones en dos tarjetas */
+#planControls .own-course-card #excludedSubjectsPanel,
+#planControls .own-course-card .own-optatives-card,
+#planControls .other-course-card .other-regular-card,
+#planControls .other-course-card .other-optatives-card{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;padding:15px 0 0;margin:15px 0 0}
+#planControls .personalize-bottom-actions>.subject-edit-card{grid-column:auto;display:block;align-items:initial;gap:0;flex-wrap:initial}
+#planControls .personalize-bottom-actions>.subject-edit-card .eyebrow{width:auto;margin-bottom:5px}
+#planControls .personalize-bottom-actions>.subject-edit-card p{margin:5px 0 12px}
+#baseCourseVisibilityMount{margin:10px 0 0}
+#baseCourseVisibilityMount .base-course-filter{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;border:1px solid #d7e3f1;border-radius:10px;background:#f4f7fb;color:var(--ink);font-size:11px}
+#baseCourseVisibilityMount .base-course-filter input{accent-color:var(--primary)}
+#baseCourseVisibilityMount .base-course-filter span{font-weight:700;flex:1 1 180px}
+#baseCourseVisibilityMount .base-course-filter small{color:var(--muted);font-size:10px}
+.empty-selection{margin:8px 0 0;color:var(--muted);font-size:11px}
+
+/* v5.10 · Vista semanal cómoda y consulta móvil de Mi curso */
+.personal-week-grid{gap:12px}
+.personal-day{padding:12px}
+.personal-day h3{font-size:13px;margin-bottom:12px}
+.personal-event{gap:10px;padding:12px 10px;margin-bottom:9px;border-left-width:4px;border-radius:9px}
+.personal-event-time{font-size:11px;min-width:88px}
+.personal-event-main strong{font-size:13px;line-height:1.35}
+.personal-event-main span{font-size:11px;line-height:1.45;margin-top:4px}
+.week-empty{font-size:11px;padding:12px 3px}
+.course-mobile-day-strip,.course-mobile-day-heading,.course-mobile-agenda{display:none}
+@media(max-width:620px){
+  .calendar-panel{padding:12px 10px}
+  .calendar-heading{margin-bottom:8px}
+  .filters-row{gap:8px;margin-bottom:10px}
+  .course-mobile-day-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:4px 0 12px}
+  .course-day-chip{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;padding:9px 3px 8px;border:1px solid var(--line);border-radius:10px;background:#f8fafc;color:#5c6e84;font:inherit;cursor:pointer}
+  .course-day-chip strong{font-size:12px}
+  .course-day-chip small{font-size:11px;color:inherit}
+  .course-day-chip i{position:absolute;top:4px;right:5px;min-width:15px;height:15px;padding:0 3px;border-radius:8px;background:#e3ebf5;color:#34577f;font-size:9px;font-style:normal;font-weight:800;line-height:15px}
+  .course-day-chip.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 3px 9px #07357524}
+  .course-day-chip.active i{background:#ffffff30;color:#fff}
+  .course-mobile-day-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:3px 1px 10px;color:var(--ink)}
+  .course-mobile-day-heading strong{font-size:14px;text-transform:capitalize}
+  .course-mobile-day-heading span{font-size:10px;color:var(--muted)}
+  .course-mobile-agenda{display:grid;gap:9px}
+  .course-agenda-event{display:grid;grid-template-columns:66px minmax(0,1fr);gap:9px;align-items:stretch}
+  .course-agenda-time{display:flex;flex-direction:column;justify-content:center;gap:3px;padding-left:2px;font-variant-numeric:tabular-nums}
+  .course-agenda-time strong{font-size:14px;line-height:1.1;color:var(--ink)}
+  .course-agenda-time span{font-size:11px;color:var(--muted)}
+  .course-agenda-card{min-width:0;padding:12px 11px;border-left:4px solid var(--event-color);border-radius:9px;background:var(--event-bg)}
+  .course-agenda-card>strong{display:block;font-size:13px;line-height:1.35;color:var(--ink);overflow-wrap:anywhere}
+  .course-agenda-card>span{display:block;margin-top:4px;font-size:11px;line-height:1.4;color:#586a80;overflow-wrap:anywhere}
+  .course-day-empty{margin-top:8px;padding:18px 12px}
+  #calendar:has(.course-mobile-day-strip){display:block;min-width:0;overflow:visible;border:0;background:transparent}
+}
+@media(min-width:621px) and (max-width:900px){
+  .personal-week-grid{gap:7px}
+  .personal-day{padding:8px}
+  .personal-event{display:flex;flex-direction:column;gap:4px;padding:9px 8px}
+  .personal-event-time{min-width:0;font-size:10px}
+  .personal-event-main strong{font-size:11px}
+  .personal-event-main span{font-size:9px}
+}

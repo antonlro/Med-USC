@@ -1,0 +1,31 @@
+MEDCALENDAR v5.1 · FASE 1
+Navegación e iconografía
+
+BASE
+- Copia independiente de MedCalendar v5.0 fase 7 (validación ampliada).
+- Los paquetes originales y la v5.0 no se han modificado.
+
+CAMBIOS
+1. Escritorio (>700 px): navegación superior con cuatro pestañas grandes (Mi semana, Mi curso, Horarios y Exámenes), icono SVG lineal y texto.
+2. Escritorio: acceso Menú en la cabecera, que abre el panel existente de Ajustes, copias de seguridad y tutorial.
+3. Móvil (<=700 px): barra inferior persistente de cinco accesos, con iconos SVG lineales y texto; se oculta la navegación superior.
+4. Se elimina el antiguo desplegable móvil redundante.
+5. Se mantienen los mismos identificadores data-main-tab, por lo que ambas navegaciones activan las mismas secciones.
+6. El tutorial inicial selecciona la navegación superior en escritorio y la inferior en móvil.
+7. Se actualiza el nombre de caché del Service Worker para que la nueva interfaz no quede oculta por la caché anterior.
+
+VALIDACIONES REALIZADAS
+- node --check sobre js/app.js: correcto.
+- Comprobación de identificadores HTML duplicados: ninguno.
+- Comprobación de existencia de los elementos openAppMenu y openAppMenuDesktop: correcta.
+- Comprobación de referencias residuales a mobileNav/mobileHelp/data-mobile-tab: ninguna en app.js.
+- Revisión del HTML: cada una de las cuatro secciones aparece una vez en la navegación superior y una vez en la inferior.
+- ZIP generado y comprobado con unzip -t.
+
+NO VALIDADO TODAVÍA
+- No se ha podido completar una ejecución de Chromium en este entorno: el proceso headless no termina correctamente.
+- No se ha probado en un iPad/iPhone ni en un navegador real del usuario.
+- No se ha hecho todavía una revisión visual de todos los tamaños de pantalla.
+
+ALCANCE
+Esta fase modifica únicamente navegación, iconografía de navegación, acceso al menú y ajustes responsive asociados. No cambia todavía la configuración inicial, el modelo de optativas, Mi semana ni Exámenes; esos cambios pertenecen a las siguientes fases aprobadas.

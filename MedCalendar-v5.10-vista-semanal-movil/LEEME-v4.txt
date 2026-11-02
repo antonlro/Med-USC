@@ -1,0 +1,30 @@
+MED USC · VERSIÓN DE PRUEBA 4.0
+
+Esta versión es una prueba funcional basada en la v3.5. No sustituye todavía a la versión estable.
+
+CAMBIOS INCLUIDOS
+- En móvil, la navegación principal se presenta mediante un menú desplegable.
+- En Mi curso aparecen dos vistas internas: Mi calendario y Personalizar.
+- En Personalizar se puede cambiar la configuración académica, gestionar asignaturas adicionales y activar/desactivar asignaturas del curso principal.
+- Las asignaturas excluidas se pueden volver a activar y no se borran del horario oficial.
+- Mi calendario conserva la consulta semanal de clases con nombre, hora, tipo y subgrupo.
+- Horarios sigue siendo una consulta independiente: cambiar filtros allí no incorpora clases al calendario personal.
+- Se mantiene la semana de lunes a viernes y los datos 2026-2027 de los cuatro cursos.
+
+IMPORTANTE SOBRE LOS DATOS
+Esta versión utiliza una base de datos local y claves de almacenamiento propias (v4 preview) para evitar mezclar los datos de prueba con versiones anteriores en el mismo navegador. No importes aquí una copia de seguridad de tu versión estable salvo que quieras trabajar con esa copia.
+
+CÓMO PROBAR EN EL ORDENADOR
+1. Descomprime el ZIP.
+2. Entra en la carpeta Med-USC-v4.0-prueba.
+3. Escribe cmd en la barra de direcciones del Explorador y pulsa Intro.
+4. Ejecuta: py -m http.server 8000
+5. Abre http://localhost:8000
+
+CÓMO PROBAR EN IPAD O MÓVIL
+1. Conecta el ordenador y el dispositivo a la misma Wi-Fi.
+2. En el ordenador ejecuta ipconfig y localiza la dirección IPv4 de la conexión Wi-Fi.
+3. En Safari abre http://DIRECCION-IP:8000 (sustituye DIRECCION-IP por la IPv4 real).
+4. Mantén el ordenador encendido y la ventana de CMD abierta.
+
+No publiques esta versión como definitiva todavía. La instalación PWA y las pruebas de funcionamiento en navegadores reales deben validarse antes de cerrar la versión estable.

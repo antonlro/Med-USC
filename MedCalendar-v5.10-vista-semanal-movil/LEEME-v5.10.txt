@@ -1,0 +1,26 @@
+MED USC · v5.10
+Vista semanal cómoda y consulta móvil de Mi curso
+
+NOVEDADES
+- Mi semana mantiene la agenda diaria en móvil y la cuadrícula semanal en iPad/ordenador.
+- En móvil, Mi semana muestra las sesiones como agenda cronológica, sin filas horarias vacías.
+- Los bloques de Mi semana en pantallas grandes son más cómodos: mayor separación, padding y tipografía legible.
+- Mi curso en móvil sustituye la lista vertical de cinco días por una fila horizontal de lunes a viernes.
+- Al seleccionar un día se muestran sus clases en una agenda compacta con hora de inicio y finalización claramente visibles.
+- Cada día muestra un contador de sesiones y la fecha correspondiente a la semana oficial seleccionada.
+- La consulta de semanas y cuatrimestres y los filtros oficiales se mantienen.
+- En iPad y ordenador se conserva la cuadrícula semanal de consulta oficial.
+
+COMPATIBILIDAD Y DATOS
+- No se modifica el esquema de almacenamiento ni la estructura de las copias de seguridad.
+- No se cambian horarios, asignaturas, grupos, subgrupos ni fechas oficiales.
+- Se conserva la v5.9 como versión anterior independiente.
+
+INSTALACIÓN
+1. Descomprime el ZIP.
+2. Publica el contenido de la carpeta en el hosting HTTPS habitual.
+3. En iPad/iPhone, abre la PWA instalada y recarga para que se actualice el Service Worker.
+4. Antes de sustituir la versión habitual, conserva una copia externa de tus datos.
+
+LIMITACIONES DE VALIDACIÓN
+Las comprobaciones automatizadas de esta entrega verifican sintaxis, datos y estructura de interfaz. No equivalen a una prueba física en Safari/iPad. Deben probarse en el dispositivo real el tamaño de texto, desplazamiento, cambio de semana y persistencia.

@@ -1,0 +1,78 @@
+Med USC · v5.0 desarrollo (fase 1)
+
+Base: copia de Med-USC-v4.0-prueba. La versión original permanece intacta.
+
+Cambios de esta fase:
+- Lectura de IndexedDB distingue registro existente, ausencia real y error de lectura.
+- No se crea un calendario inicial cuando la lectura falla.
+- Se comprueba la estructura básica del estado antes de migrarlo.
+- Se conserva una copia local previa a la primera migración de esta fase.
+- Guardado con estado Guardando / Guardado / Error; ya no muestra éxito si fallan IndexedDB y localStorage.
+- Escrituras serializadas para reducir carreras entre guardados.
+- Se intenta recuperar la copia local heredada si IndexedDB no contiene todavía un registro.
+- Cambiar el curso principal deja de borrar las asignaturas adicionales de otros cursos.
+- Pantalla de recuperación con reintento; no propone reiniciar desde cero.
+
+Limitaciones pendientes:
+- Aún no se ha implementado un sistema completo de migraciones versionadas con rollback transaccional.
+- La copia previa a migración se almacena en localStorage y está sujeta a sus límites y al borrado de datos del navegador.
+- No hay sincronización en la nube. Los datos siguen almacenándose localmente en el dispositivo.
+- La interfaz todavía conserva controles antiguos de v4.0; su retirada y reorganización se abordarán en fases posteriores.
+- No se ha validado aún en navegadores reales ni en dispositivos iOS/Android.
+
+Comprobación realizada: validación sintáctica de js/app.js con Node.js.
+
+Fase 1 · ampliación de copias de seguridad:
+- La exportación genera un archivo JSON con formato identificado, versión de copia, fecha y estado completo.
+- La importación admite el formato nuevo y copias antiguas en formato de estado directo.
+- Se valida el contenido antes de pedir confirmación o tocar el estado actual.
+- Antes de importar se intenta crear una copia local de recuperación del estado previo.
+- La importación solo se considera completada si el guardado devuelve confirmación; si falla, se restaura el estado anterior en memoria.
+- Se manejan explícitamente errores de lectura del archivo.
+
+Comprobaciones adicionales realizadas: `node --check` sobre js/app.js y verificación de integridad del ZIP generado. No se ha realizado todavía una prueba de extremo a extremo en navegador ni en iOS.
+
+FASE 2 · CATÁLOGO DE OPTATIVAS (2026-2027)
+- Se incorpora data/optativas-2026-2027.json como fuente independiente, extraída del PDF «Horarios optativas hasta 4to de carrera.pdf».
+- El catálogo contiene 9 códigos de optativas y 532 registros de sesiones/entradas de horario, con curso, cuatrimestre, semana, fecha, día, hora, grupo, etiqueta literal y página de origen.
+- La sección Personalizar permite añadir y quitar optativas por código, grupo y, cuando el PDF lo permite identificar, subgrupo. Las seleccionadas se incorporan a Mi semana sin modificar los horarios oficiales del curso.
+- Se conserva el texto literal del PDF. Las entradas que no identifican claramente tipo/sesión quedan marcadas como OPT y se muestran sin forzar su clasificación como expositiva, seminario o práctica.
+- LIMITACIÓN DE LA FUENTE: el PDF no incluye el desarrollo de los nombres completos de las optativas. Por tanto, el catálogo deja officialName como null y la interfaz muestra los códigos; no se han añadido equivalencias no verificadas.
+- Primer curso: sin optativas. Segundo: solo segundo cuatrimestre. Tercero y cuarto: ambos cuatrimestres.
+- Los horarios de prácticas clínicas no se han añadido.
+
+VALIDACIÓN REALIZADA EN ESTA FASE
+- JSON parseable y con 9 materias / 532 entradas extraídas.
+- JavaScript comprobado con node --check.
+- Service worker actualizado para precargar el nuevo catálogo y usar caché v5.
+- No se ha realizado todavía una prueba funcional en navegador real ni una validación visual completa en iPad/iPhone.
+
+
+FASE 3 — CALENDARIO DE EXÁMENES
+
+- Fuente oficial independiente: data/examenes-2026-2027.json (horarios exámenes.pdf).
+- 104 registros: 1.º (20), 2.º (26), 3.º (30), 4.º (28).
+- Convocatorias: Primer cuatrimestre, Segundo cuatrimestre y Segunda oportunidad.
+- Incluye Práctica Clínica I y II porque aparecen en el PDF de exámenes. Esto no incorpora sus sesiones al horario semanal.
+- Psiquiatría da Infancia, Adolescencia e Xerontopsiquiatría se conserva como evaluación continua, sin fecha, hora ni aula, en segundo cuatrimestre y segunda oportunidad tal como aparece en el documento.
+- Los datos oficiales se mantienen en un JSON de solo lectura; los cambios se guardan en state.examsData.overrides y los exámenes personales en state.examsData.personal.
+- Restaurar un examen elimina la modificación de sus datos oficiales y conserva las notas personales.
+- Se incorporan filtros por curso, convocatoria, mes y estado; edición de asignatura, fecha, hora, aulas y notas; alta y eliminación de exámenes personales.
+- Los errores tipográficos detectados en la segunda oportunidad se normalizan en la etiqueta visible y se conserva el texto original en sourceSubject.
+- Pruebas realizadas en esta fase: extracción de texto PDF, recuento por curso y convocatoria, validación JSON y node --check de JavaScript. No se ha completado una prueba funcional en navegador real.
+
+FASE 4 · NAVEGACIÓN Y ORGANIZACIÓN DE LA INTERFAZ
+- Se incorpora una barra de navegación inferior persistente con Mi semana, Mi curso, Horarios, Exámenes y Menú.
+- La barra se adapta a móvil y escritorio y contempla el área segura inferior de dispositivos móviles.
+- El Menú reúne Ajustes, importación/exportación de copias de seguridad y ayuda/tutorial.
+- El selector de curso continúa reservado a la sección Horarios; no aparece en Mi semana, Mi curso ni Exámenes.
+- La edición de colores y aulas de asignaturas se ofrece desde Mi curso > Personalizar.
+- Se ocultan las antiguas pestañas superiores y el desplegable de navegación móvil.
+- Se sustituye la terminología visible «semestre» por «cuatrimestre» en el selector y tutorial de horarios.
+- Se mantienen las funciones internas y los datos existentes; esta fase reorganiza principalmente la navegación y los accesos.
+
+VALIDACIÓN DE ESTA FASE
+- `node --check js/app.js`: correcto.
+- HTML: no se detectaron identificadores duplicados.
+- La navegación tiene cinco destinos (cuatro secciones y Menú).
+- No se ha completado una prueba funcional integral en navegador real ni en dispositivos iOS/Android; queda pendiente para la fase de pruebas.

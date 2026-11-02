@@ -1,0 +1,43 @@
+MED USC v3.5 — NORMALIZACIÓN DE ASIGNATURAS
+================================================
+
+NOVEDADES
+- Primera apertura: pantalla de bienvenida para elegir curso principal, grupo y subgrupo opcional.
+- La selección es reversible desde «Mi curso» mediante «Cambiar mi configuración».
+- «Mi semana» permanece vacía y muestra cómo configurar el curso mientras no exista una configuración académica.
+- El horario principal muestra solo el grupo elegido; si se especifica subgrupo, filtra las clases específicas de ese subgrupo y conserva las sesiones comunes.
+- Si no se especifica subgrupo, se muestran todos los subgrupos del grupo principal.
+- Si se ha especificado un subgrupo, «Mostrar otros subgrupos» permite ver temporalmente las clases del resto de subgrupos del mismo grupo.
+- Las asignaturas adicionales de otros cursos mantienen su selección independiente y su presentación diferenciada.
+- Horarios generales sigue disponible aunque todavía no se haya configurado el calendario personal.
+- El tutorial opcional aparece después de la configuración inicial y su contenido se ha adaptado al nuevo flujo.
+- Se conserva la identidad visual Med USC, los horarios cargados, las asignaturas adicionales, los avisos de solapamiento y las opciones de importación/exportación.
+
+CONFIGURACIÓN Y DATOS
+- La configuración académica se guarda separada de las asignaturas adicionales.
+- Cambiar el curso principal elimina de la lista de asignaturas adicionales únicamente las asignaturas del curso que pasa a ser el principal, para evitar duplicados; se conservan las demás.
+- Los datos se guardan localmente en IndexedDB/localStorage. No hay cuentas ni sincronización automática entre dispositivos.
+- Se recomienda exportar una copia de seguridad antes de actualizar una instalación con datos personales.
+
+PRUEBA LOCAL EN WINDOWS
+1. Extrae el ZIP en una carpeta nueva.
+2. Abre la carpeta que contiene index.html.
+3. Haz clic en la barra de dirección del Explorador, escribe cmd y pulsa Enter.
+4. Ejecuta: py -m http.server 8000
+5. Abre http://localhost:8000 en Chrome. Mantén abierta la ventana de CMD mientras pruebas.
+
+INSTALACIÓN EN IPHONE/IPAD
+Publica la aplicación en HTTPS, abre la dirección en Safari y selecciona Compartir > Añadir a pantalla de inicio.
+
+NOTA
+La pantalla inicial y la configuración académica se prueban mejor en una ventana de incógnito o borrando los datos locales de la versión anterior. Si ya existe un perfil guardado, la aplicación lo conserva; la nueva pantalla solo se muestra cuando no hay un perfil académico configurado.
+
+
+Versión 3.4: al añadir una asignatura adicional a Mi semana se incorporan todas sus sesiones de los grupos A, B, C y D, incluidos sus subgrupos. Ya no es necesario seleccionar un grupo.
+
+
+CAMBIO V3.4
+- El selector de asignaturas elimina sufijos de subgrupo que aparecían pegados al nombre (por ejemplo, BIOL BI/B2 o BIOQ C B 1/B2). Se muestra una única asignatura y, al añadirla, se incluyen todas las sesiones de todos los grupos.
+
+
+Actualización v3.5: Mi semana solo muestra de lunes a viernes en móvil y escritorio. Se han eliminado sábado y domingo también del selector de día de las clases manuales. Se ha retirado el botón superior «Añadir clase».
